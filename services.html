@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services — LaviTech</title>
+  <link rel="icon" href="res/logo.png">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav class="nav-glass fixed top-0 left-0 right-0 z-50">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-3">
+        <div class="image-container">
+          <div class="image-container"><img src="https://z-cdn-media.chatglm.cn/files/9029702b-c927-4c48-9376-8bdad121d966.png?auth_key=1877895135-c94da010b8a84ee49d18d6f2d64744d9-0-881f1f0a33c6cf48a7242c39f0225626" alt="LaviTech" class="h-12 w-12 object-contain"><div class="image-overlay" oncontextmenu="return false;"></div></div>
+          <div class="image-overlay" oncontextmenu="return false;"></div>
+        </div>
+        <span class="text-white font-semibold text-lg tracking-wide">LaviTech</span>
+      </a>
+      <div class="hidden md:flex items-center gap-8">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="services.html" class="nav-link">Services</a>
+        <a href="portfolio.html" class="nav-link">Portfolio</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </div>
+      <div class="hidden md:flex items-center gap-3 border-l border-[rgba(255,255,255,0.1)] pl-6">
+        <label for="themeSelectorDesktop" class="text-[var(--text-secondary)] text-xs uppercase tracking-[0.24em]">Theme</label>
+        <select id="themeSelectorDesktop" class="theme-selector">
+          <option value="default">Default</option>
+          <option value="light">Light</option>
+          <option value="dark">Dark</option>
+          <option value="neon">Neon</option>
+        </select>
+      </div>
+      <div class="hamburger md:hidden"><span></span><span></span><span></span></div>
+    </div>
+  </nav>
+  <div id="quick-menu">
+  <div class="menu-item" data-link="index.html"><span class="iconify" data-icon="lucide:home" data-width="18"></span> Home</div>
+  <div class="menu-item" data-link="portfolio.html"><span class="iconify" data-icon="lucide:code" data-width="18"></span> Portfolio</div>
+  <div class="menu-item" data-link="about.html"><span class="iconify" data-icon="lucide:users" data-width="18"></span> About</div>
+  <div class="menu-item" data-link="contact.html"><span class="iconify" data-icon="lucide:mail" data-width="18"></span> Contact</div>
+  <div class="menu-item" data-link="services.html"><span class="iconify" data-icon="lucide:wrench" data-width="18"></span> Services</div>
+</div>
+  <div class="mobile-menu">
+    <a href="index.html" class="nav-link">Home</a>
+    <a href="about.html" class="nav-link">About</a>
+    <a href="services.html" class="nav-link">Services</a>
+    <a href="portfolio.html" class="nav-link">Portfolio</a>
+    <a href="contact.html" class="nav-link">Contact</a>
+    <div class="px-6 py-4 border-t border-[rgba(255,255,255,0.1)]">
+      <label class="block text-[var(--text-secondary)] text-xs uppercase tracking-[0.24em] mb-2">Theme</label>
+      <select class="theme-selector">
+        <option value="default">Default</option>
+        <option value="light">Light</option>
+        <option value="dark">Dark</option>
+        <option value="neon">Neon</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero-section relative" style="min-height:70vh;">
+    <div class="hero-gradient"></div>
+    <div class="particles-container absolute inset-0 z-[1]"></div>
+    <div class="parallax-shape w-80 h-80 bg-yellow-600 -bottom-20 left-10" data-parallax="0.2" style="position:absolute;"></div>
+    <div class="max-w-7xl mx-auto px-6 w-full relative z-10 pt-20">
+      <div class="max-w-3xl">
+        <div class="section-tag mb-6 reveal">
+          <span class="iconify" data-icon="lucide:settings" data-width="14"></span>
+          Our Services
+        </div>
+        <h1 class="section-title mb-6 reveal stagger-1">
+          Solutions That <span class="text-[var(--accent-gold)]" style="font-style:italic;">Deliver</span>
+        </h1>
+        <div class="text-xl text-[var(--text-secondary)] reveal stagger-2" style="min-height:36px;">
+          <span data-typewriter="School Management Systems||Business Management Systems||Learning Management Systems||Mobile Applications||Custom Enterprise Software||IT Consulting & Strategy" data-speed="60" data-delete-speed="30" data-pause="2000"></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DETAILED SERVICES -->
+  <section class="py-24 md:py-32 relative">
+    <div class="max-w-7xl mx-auto px-6">
+
+      <!-- Service 1 — Full Width Featured -->
+      <div class="grid lg:grid-cols-2 gap-12 items-center mb-24">
+        <div class="reveal-left">
+          <div class="rotating-border">
+            <div class="image-container">
+              <div class="image-container"><img src="res/img1.png" alt="School Management" class="w-full h-80 lg:h-[400px] object-cover rounded-2xl" style="zoom: 80%;"><div class="image-overlay" oncontextmenu="return false;"></div></div>
+              <div class="image-overlay" oncontextmenu="return false;"></div>
+            </div>
+          </div>
+        </div>
+        <div class="reveal-right">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-12 h-12 rounded-xl bg-[rgba(212,168,67,0.1)] flex items-center justify-center">
+              <span class="iconify text-[var(--accent-gold)]" data-icon="lucide:school" data-width="24"></span>
+            </div>
+            <span class="text-[var(--accent-gold)] text-sm font-semibold tracking-widest uppercase">01</span>
+          </div>
+          <h2 class="text-white text-3xl font-medium mb-4" style="font-family:var(--font-serif);">Business Management System</h2>
+          <p class="text-[var(--text-secondary)] leading-relaxed mb-6">A comprehensive platform that handles every aspect of business. From managing stock, recording sales, sales report and stock report generation.</p>
+          <ul class="space-y-3 mb-6">
+            <li class="flex items-center gap-3 text-sm text-[var(--text-secondary)]">
+              <span class="iconify text-[var(--accent-gold)]" data-icon="lucide:check-circle" data-width="16"></span>
+              Inventory & Stock Management
+            </li>
+            <li class="flex items-center gap-3 text-sm text-[var(--text-secondary)]">
+              <span class="iconify text-[var(--accent-gold)]" data-icon="lucide:check-circle" data-width="16"></span>
+              Automated Sales and Stock Report Generation
+            </li>
+            <li class="flex items-center gap-3 text-sm text-[var(--text-secondary)]">
+              <span class="iconify text-[var(--accent-gold)]" data-icon="lucide:check-circle" data-width="16"></span>
+              Analytics dashboard for Sales Trends and Inventory Insights
+            </li>
+            <li class="flex items-center gap-3 text-sm text-[var(--text-secondary)]">
+              <span class="iconify text-[var(--accent-gold)]" data-icon="lucide:check-circle" data-width="16"></span>
+              Role Based Access Control and User Management
+            </li>
+          </ul>
+          <a href="contact.html" class="btn-primary text-sm">Request Demo</a>
+        </div>
+      </div>
+
+      <!-- Service 2 & 3 — Side by Side -->
+      <div class="grid lg:grid-cols-2 gap-8 mb-24">
+        <div class="tilt-card card-base reveal stagger-1">
+          <div class="tilt-inner">
+            <div class="image-container">
+              <div class="image-container"><img src="res/EMS.png" alt="LMS" class="w-full h-48 object-cover rounded-xl mb-6" style="zoom: 120%;"><div class="image-overlay" oncontextmenu="return false;"></div></div>
+              <div class="image-overlay" oncontextmenu="return false;"></div>
+            </div>
+            <div class="flex items-center gap-3 mb-3">
+              <div class="w-10 h-10 rounded-lg bg-[rgba(42,82,152,0.2)] flex items-center justify-center">
+                <span class="iconify text-[var(--accent-blue-light)]" data-icon="lucide:book-open" data-width="20"></span>
+              </div>
+              <span class="text-[var(--accent-blue-light)] text-xs font-semibold tracking-widest">02</span>
+            </div>
+            <h3 class="text-white text-xl font-medium mb-3">Election Management System</h3>
+            <p class="text-sm text-[var(--text-secondary)] leading-relaxed mb-4">Virtual classrooms, course content management, online assignments, quizzes with auto-grading, discussion forums, and progress analytics for teachers and students.</p>
+            <a href="contact.html" class="text-[var(--accent-gold)] text-sm font-medium inline-flex items-center gap-1 hover:gap-2 transition-all">
+              Learn More <span class="iconify" data-icon="lucide:arrow-right" data-width="14"></span>
+            </a>
+          </div>
+        </div>
+
+        <div class="tilt-card card-base reveal stagger-2">
+          <div class="tilt-inner">
+            <div class="image-container">
+              <div class="image-container"><img src="res/eagle.png" alt="ERP" class="w-full h-48 object-cover rounded-xl mb-6"><div class="image-overlay" oncontextmenu="return false;"></div></div>
+              <div class="image-overlay" oncontextmenu="return false;"></div>
+            </div>
+            <div class="flex items-center gap-3 mb-3">
+              <div class="w-10 h-10 rounded-lg bg-[rgba(212,168,67,0.1)] flex items-center justify-center">
+                <span class="iconify text-[var(--accent-gold)]" data-icon="lucide:wallet" data-width="20"></span>
+              </div>
+              <span class="text-[var(--accent-gold)] text-xs font-semibold tracking-widest">03</span>
+            </div>
+            <h3 class="text-white text-xl font-medium mb-3">The Eagle Biology Class (LMS)</h3>
+            <p class="text-sm text-[var(--text-secondary)] leading-relaxed mb-4">Virtual classrooms, course content management, online assignments, quizzes with auto-grading, discussion forums, and progress analytics for teachers and students.</p>
+            <a href="contact.html" class="text-[var(--accent-gold)] text-sm font-medium inline-flex items-center gap-1 hover:gap-2 transition-all">
+              Learn More <span class="iconify" data-icon="lucide:arrow-right" data-width="14"></span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Service 4, 5, 6 — Three Column -->
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="tilt-card card-base reveal stagger-1">
+          <div class="tilt-inner">
+            <div class="w-14 h-14 rounded-xl bg-[rgba(42,82,152,0.2)] flex items-center justify-center mb-5">
+              <span class="iconify text-[var(--accent-blue-light)]" data-icon="lucide:smartphone" data-width="28"></span>
+            </div>
+            <span class="text-[var(--accent-blue-light)] text-xs font-semibold tracking-widest">04</span>
+            <h3 class="text-white text-xl font-medium mt-2 mb-3">Mobile Applications</h3>
+            <p class="text-sm text-[var(--text-secondary)] leading-relaxed mb-4">Cross-platform iOS and Android apps for parents, students, and staff. Push notifications, fee payments, real-time updates, and more.</p>
+            <a href="contact.html" class="text-[var(--accent-gold)] text-sm font-medium inline-flex items-center gap-1 hover:gap-2 transition-all">
+              Learn More <span class="iconify" data-icon="lucide:arrow-right" data-width="14"></span>
+            </a>
+          </div>
+        </div>
+        <div class="tilt-card card-base reveal stagger-2">
+          <div class="tilt-inner">
+            <div class="w-14 h-14 rounded-xl bg-[rgba(212,168,67,0.1)] flex items-center justify-center mb-5">
+              <span class="iconify text-[var(--accent-gold)]" data-icon="lucide:code-2" data-width="28"></span>
+            </div>
+            <span class="text-[var(--accent-gold)] text-xs font-semibold tracking-widest">05</span>
+            <h3 class="text-white text-xl font-medium mt-2 mb-3">Custom Software</h3>
+            <p class="text-sm text-[var(--text-secondary)] leading-relaxed mb-4">Need something unique? We build bespoke web and desktop applications for businesses, NGOs, government agencies, and more.</p>
+            <a href="contact.html" class="text-[var(--accent-gold)] text-sm font-medium inline-flex items-center gap-1 hover:gap-2 transition-all">
+              Learn More <span class="iconify" data-icon="lucide:arrow-right" data-width="14"></span>
+            </a>
+          </div>
+        </div>
+        <div class="tilt-card card-base reveal stagger-3">
+          <div class="tilt-inner">
+            <div class="w-14 h-14 rounded-xl bg-[rgba(42,82,152,0.2)] flex items-center justify-center mb-5">
+              <span class="iconify text-[var(--accent-blue-light)]" data-icon="lucide:headphones" data-width="28"></span>
+            </div>
+            <span class="text-[var(--accent-blue-light)] text-xs font-semibold tracking-widest">06</span>
+            <h3 class="text-white text-xl font-medium mt-2 mb-3">IT Consulting</h3>
+            <p class="text-sm text-[var(--text-secondary)] leading-relaxed mb-4">Technology audits, digital transformation strategy, software selection guidance, staff training, and ongoing technical advisory services.</p>
+            <a href="contact.html" class="text-[var(--accent-gold)] text-sm font-medium inline-flex items-center gap-1 hover:gap-2 transition-all">
+              Learn More <span class="iconify" data-icon="lucide:arrow-right" data-width="14"></span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OUR PROCESS -->
+  <section class="py-24 md:py-32 relative" style="background: var(--bg-primary);">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-20">
+        <div class="section-tag mx-auto mb-4 reveal">
+          <span class="iconify" data-icon="lucide:git-branch" data-width="14"></span>
+          Our Process
+        </div>
+        <h2 class="section-title reveal stagger-1">How We <span class="text-[var(--accent-gold)]" style="font-style:italic;">Work</span></h2>
+      </div>
+
+      <div class="grid md:grid-cols-5 gap-6 relative">
+        <!-- Connector lines (desktop) -->
+        <div class="hidden md:block process-connector" style="left:calc(10% + 40px); width:calc(80% - 80px);"></div>
+
+        <div class="text-center reveal stagger-1 relative">
+          <div class="w-20 h-20 rounded-full bg-[var(--bg-card)] border-2 border-[var(--accent-gold)] flex items-center justify-center mx-auto mb-4 relative z-10">
+            <span class="iconify text-[var(--accent-gold)]" data-icon="lucide:search" data-width="28"></span>
+          </div>
+          <h3 class="text-white text-sm font-medium mb-2">Discovery</h3>
+          <p class="text-xs text-[var(--text-secondary)]">We listen, research, and understand your needs deeply.</p>
+        </div>
+        <div class="text-center reveal stagger-2 relative">
+          <div class="w-20 h-20 rounded-full bg-[var(--bg-card)] border-2 border-[var(--accent-blue)] flex items-center justify-center mx-auto mb-4 relative z-10">
+            <span class="iconify text-[var(--accent-blue-light)]" data-icon="lucide:pencil-ruler" data-width="28"></span>
+          </div>
+          <h3 class="text-white text-sm font-medium mb-2">Design</h3>
+          <p class="text-xs text-[var(--text-secondary)]">UI/UX wireframes and prototypes for your approval.</p>
+        </div>
+        <div class="text-center reveal stagger-3 relative">
+          <div class="w-20 h-20 rounded-full bg-[var(--bg-card)] border-2 border-[var(--accent-gold)] flex items-center justify-center mx-auto mb-4 relative z-10">
+            <span class="iconify text-[var(--accent-gold)]" data-icon="lucide:code" data-width="28"></span>
+          </div>
+          <h3 class="text-white text-sm font-medium mb-2">Develop</h3>
+          <p class="text-xs text-[var(--text-secondary)]">Agile development with regular demos and feedback loops.</p>
+        </div>
+        <div class="text-center reveal stagger-4 relative">
+          <div class="w-20 h-20 rounded-full bg-[var(--bg-card)] border-2 border-[var(--accent-blue)] flex items-center justify-center mx-auto mb-4 relative z-10">
+            <span class="iconify text-[var(--accent-blue-light)]" data-icon="lucide:bug" data-width="28"></span>
+          </div>
+          <h3 class="text-white text-sm font-medium mb-2">Test</h3>
+          <p class="text-xs text-[var(--text-secondary)]">Rigorous QA to ensure reliability and performance.</p>
+        </div>
+        <div class="text-center reveal stagger-5 relative">
+          <div class="w-20 h-20 rounded-full bg-[var(--bg-card)] border-2 border-[var(--accent-gold)] flex items-center justify-center mx-auto mb-4 relative z-10">
+            <span class="iconify text-[var(--accent-gold)]" data-icon="lucide:rocket" data-width="28"></span>
+          </div>
+          <h3 class="text-white text-sm font-medium mb-2">Launch</h3>
+          <p class="text-xs text-[var(--text-secondary)]">Deployment, training, and ongoing support.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TECH STACK -->
+  <section class="py-24 md:py-32 relative">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <div class="section-tag mx-auto mb-4 reveal">
+          <span class="iconify" data-icon="lucide:cpu" data-width="14"></span>
+          Technology
+        </div>
+        <h2 class="section-title reveal stagger-1">Our Tech <span class="text-[var(--accent-gold)]" style="font-style:italic;">Stack</span></h2>
+      </div>
+
+      <div class="grid grid-cols-3 md:grid-cols-6 gap-4">
+        <div class="card-base text-center py-6 reveal stagger-1 tilt-card">
+          <div class="tilt-inner">
+            <span class="iconify text-[#61DAFB] mx-auto mb-2" data-icon="logos:react" data-width="40"></span>
+            <p class="text-xs text-[var(--text-secondary)]">React</p>
+          </div>
+        </div>
+        <div class="card-base text-center py-6 reveal stagger-2 tilt-card">
+          <div class="tilt-inner">
+            <span class="iconify text-[#339933] mx-auto mb-2" data-icon="logos:nodejs-icon" data-width="40"></span>
+            <p class="text-xs text-[var(--text-secondary)]">Node.js</p>
+          </div>
+        </div>
+        <div class="card-base text-center py-6 reveal stagger-3 tilt-card">
+          <div class="tilt-inner">
+            <span class="iconify text-[#3776AB] mx-auto mb-2" data-icon="logos:python" data-width="40"></span>
+            <p class="text-xs text-[var(--text-secondary)]">Python</p>
+          </div>
+        </div>
+        <div class="card-base text-center py-6 reveal stagger-4 tilt-card">
+          <div class="tilt-inner">
+            <span class="iconify text-[#02569B] mx-auto mb-2" data-icon="logos:flutter" data-width="40"></span>
+            <p class="text-xs text-[var(--text-secondary)]">Flutter</p>
+          </div>
+        </div>
+        <div class="card-base text-center py-6 reveal stagger-5 tilt-card">
+          <div class="tilt-inner">
+            <span class="iconify text-[#FF9900] mx-auto mb-2" data-icon="logos:aws" data-width="40"></span>
+            <p class="text-xs text-[var(--text-secondary)]">AWS</p>
+          </div>
+        </div>
+        <div class="card-base text-center py-6 reveal stagger-6 tilt-card">
+          <div class="tilt-inner">
+            <span class="iconify text-[#4479A1] mx-auto mb-2" data-icon="logos:mysql" data-width="40"></span>
+            <p class="text-xs text-[var(--text-secondary)]">MySQL</p>
+          </div>
+        </div>
+        <div class="card-base text-center py-6 reveal stagger-1 tilt-card">
+          <div class="tilt-inner">
+            <span class="iconify text-[#68A063] mx-auto mb-2" data-icon="logos:postgresql" data-width="40"></span>
+            <p class="text-xs text-[var(--text-secondary)]">PostgreSQL</p>
+          </div>
+        </div>
+        <div class="card-base text-center py-6 reveal stagger-2 tilt-card">
+          <div class="tilt-inner">
+            <span class="iconify text-[#092E20] mx-auto mb-2" data-icon="logos:docker-icon" data-width="40"></span>
+            <p class="text-xs text-[var(--text-secondary)]">Docker</p>
+          </div>
+        </div>
+        <div class="card-base text-center py-6 reveal stagger-3 tilt-card">
+          <div class="tilt-inner">
+            <span class="iconify text-[#326CE5] mx-auto mb-2" data-icon="logos:kubernetes" data-width="40"></span>
+            <p class="text-xs text-[var(--text-secondary)]">Kubernetes</p>
+          </div>
+        </div>
+        <div class="card-base text-center py-6 reveal stagger-4 tilt-card">
+          <div class="tilt-inner">
+            <span class="iconify text-[#E34F26] mx-auto mb-2" data-icon="logos:html-5" data-width="40"></span>
+            <p class="text-xs text-[var(--text-secondary)]">HTML5</p>
+          </div>
+        </div>
+        <div class="card-base text-center py-6 reveal stagger-5 tilt-card">
+          <div class="tilt-inner">
+            <span class="iconify text-[#1572B6] mx-auto mb-2" data-icon="logos:css-3" data-width="40"></span>
+            <p class="text-xs text-[var(--text-secondary)]">CSS3</p>
+          </div>
+        </div>
+        <div class="card-base text-center py-6 reveal stagger-6 tilt-card">
+          <div class="tilt-inner">
+            <span class="iconify text-[#F7DF1E] mx-auto mb-2" data-icon="logos:javascript" data-width="40"></span>
+            <p class="text-xs text-[var(--text-secondary)]">JavaScript</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer py-12">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+        <div class="flex items-center gap-3">
+          <div class="image-container">
+            <div class="image-container"><img src="https://z-cdn-media.chatglm.cn/files/9029702b-c927-4c48-9376-8bdad121d966.png?auth_key=1877895135-c94da010b8a84ee49d18d6f2d64744d9-0-881f1f0a33c6cf48a7242c39f0225626" alt="LaviTech" class="h-8 w-8 object-contain"><div class="image-overlay" oncontextmenu="return false;"></div></div>
+            <div class="image-overlay" oncontextmenu="return false;"></div>
+          </div>
+          <span class="text-white text-sm">© <span id="current-year"></span> LaviTech. All rights reserved.</span>
+        </div>
+        <div class="flex items-center gap-3">
+          <span class="text-[var(--text-muted)] text-xs uppercase tracking-widest">Powered by:</span>
+          <div class="image-container">
+            <div class="image-container"><img src="https://z-cdn-media.chatglm.cn/files/a350db93-f9d4-41fc-a2a7-0d4c314ed376.png?auth_key=1877895135-d2fbfb4387914b7eb0d17e6d24f3a646-0-c90681297267a85a55196c3c5141895e" alt="CKS-Tech" class="powered-logo h-8"><div class="image-overlay" oncontextmenu="return false;"></div></div>
+            <div class="image-overlay" oncontextmenu="return false;"></div>
+          </div>
+          <span class="text-[var(--text-muted)]">&</span>
+          <div class="image-container">
+            <div class="image-container"><img src="https://z-cdn-media.chatglm.cn/files/6dd93892-dfa5-4820-abb8-b9864932c148.png?auth_key=1877895135-7a87295d19b7455c829c4d2890f780ac-0-6464629db196fef3a02fcf6c93779f34" alt="D@in Corp" class="powered-logo h-8"><div class="image-overlay" oncontextmenu="return false;"></div></div>
+            <div class="image-overlay" oncontextmenu="return false;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+
+  <!-- Dynamic Year Script -->
+  <script>
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

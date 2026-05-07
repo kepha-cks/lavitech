@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us — LaviTech</title>
+  <link rel="icon" href="https://z-cdn-media.chatglm.cn/files/9029702b-c927-4c48-9376-8bdad121d966.png?auth_key=1877895135-c94da010b8a84ee49d18d6f2d64744d9-0-881f1f0a33c6cf48a7242c39f0225626" type="image/png">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav class="nav-glass fixed top-0 left-0 right-0 z-50">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-3">
+        <div class="image-container"><img src="https://z-cdn-media.chatglm.cn/files/9029702b-c927-4c48-9376-8bdad121d966.png?auth_key=1877895135-c94da010b8a84ee49d18d6f2d64744d9-0-881f1f0a33c6cf48a7242c39f0225626" alt="LaviTech" class="h-12 w-12 object-contain"><div class="image-overlay" oncontextmenu="return false;"></div></div>
+        <span class="text-white font-semibold text-lg tracking-wide">LaviTech</span>
+      </a>
+      <div class="hidden md:flex items-center gap-8">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="services.html" class="nav-link">Services</a>
+        <a href="portfolio.html" class="nav-link">Portfolio</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </div>
+      <div class="hidden md:flex items-center gap-3 border-l border-[rgba(255,255,255,0.1)] pl-6">
+        <label for="themeSelectorDesktop" class="text-[var(--text-secondary)] text-xs uppercase tracking-[0.24em]">Theme</label>
+        <select id="themeSelectorDesktop" class="theme-selector">
+          <option value="default">Default</option>
+          <option value="light">Light</option>
+          <option value="dark">Dark</option>
+          <option value="neon">Neon</option>
+        </select>
+      </div>
+      <div class="hamburger md:hidden"><span></span><span></span><span></span></div>
+    </div>
+  </nav>
+  <div id="quick-menu">
+  <div class="menu-item" data-link="index.html"><span class="iconify" data-icon="lucide:home" data-width="18"></span> Home</div>
+  <div class="menu-item" data-link="portfolio.html"><span class="iconify" data-icon="lucide:code" data-width="18"></span> Portfolio</div>
+  <div class="menu-item" data-link="about.html"><span class="iconify" data-icon="lucide:users" data-width="18"></span> About</div>
+  <div class="menu-item" data-link="contact.html"><span class="iconify" data-icon="lucide:mail" data-width="18"></span> Contact</div>
+  <div class="menu-item" data-link="services.html"><span class="iconify" data-icon="lucide:wrench" data-width="18"></span> Services</div>
+</div>
+  <div class="mobile-menu">
+    <a href="index.html" class="nav-link">Home</a>
+    <a href="about.html" class="nav-link">About</a>
+    <a href="services.html" class="nav-link">Services</a>
+    <a href="portfolio.html" class="nav-link">Portfolio</a>
+    <a href="contact.html" class="nav-link">Contact</a>
+    <div class="px-6 py-4 border-t border-[rgba(255,255,255,0.1)]">
+      <label class="block text-[var(--text-secondary)] text-xs uppercase tracking-[0.24em] mb-2">Theme</label>
+      <select class="theme-selector">
+        <option value="default">Default</option>
+        <option value="light">Light</option>
+        <option value="dark">Dark</option>
+        <option value="neon">Neon</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero-section relative" style="min-height:60vh;">
+    <div class="hero-gradient"></div>
+    <div class="particles-container absolute inset-0 z-[1]"></div>
+    <div class="parallax-shape w-72 h-72 bg-yellow-600 top-10 -left-20" data-parallax="0.2" style="position:absolute;"></div>
+    <div class="parallax-shape w-64 h-64 bg-blue-600 bottom-0 right-20" data-parallax="-0.15" style="position:absolute;"></div>
+    <div class="max-w-7xl mx-auto px-6 w-full relative z-10 pt-20">
+      <div class="max-w-3xl">
+        <div class="section-tag mb-6 reveal">
+          <span class="iconify" data-icon="lucide:mail" data-width="14"></span>
+          Contact Us
+        </div>
+        <h1 class="section-title mb-6 reveal stagger-1">
+          Let's Start a <span class="text-[var(--accent-gold)]" style="font-style:italic;">Conversation</span>
+        </h1>
+        <div class="text-xl text-[var(--text-secondary)] reveal stagger-2" style="min-height:36px;">
+          <span data-typewriter="We'd love to hear from you||Get a free consultation||Let's build something great||Your project starts here" data-speed="65" data-delete-speed="30" data-pause="2200"></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT FORM + OFFICE INFO -->
+  <section class="py-24 md:py-32 relative">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid lg:grid-cols-5 gap-12">
+
+        <!-- FORM (3 cols) -->
+        <div class="lg:col-span-3 reveal-left">
+          <h2 class="text-white text-2xl font-medium mb-2" style="font-family:var(--font-serif);">Send Us a Message</h2>
+          <p class="text-[var(--text-secondary)] text-sm mb-8">Fill out the form below and we'll get back to you within 24 hours.</p>
+
+          <form id="contactForm" class="space-y-5">
+            <div class="grid md:grid-cols-2 gap-5">
+              <div>
+                <label class="text-xs text-[var(--text-muted)] uppercase tracking-widest mb-2 block">Full Name *</label>
+                <input type="text" id="from_name" class="form-input" placeholder="John Doe" required>
+              </div>
+              <div>
+                <label class="text-xs text-[var(--text-muted)] uppercase tracking-widest mb-2 block">Email Address *</label>
+                <input type="email" id="from_email" class="form-input" placeholder="john@example.com" required>
+              </div>
+            </div>
+            <div>
+              <label class="text-xs text-[var(--text-muted)] uppercase tracking-widest mb-2 block">Subject *</label>
+              <input type="text" id="subject" class="form-input" placeholder="e.g. School Management System Inquiry" required>
+            </div>
+            <div>
+              <label class="text-xs text-[var(--text-muted)] uppercase tracking-widest mb-2 block">Message *</label>
+              <textarea class="form-input" id="message" rows="6" placeholder="Tell us about your project, institution, and what you need..." required></textarea>
+            </div>
+            <button type="submit" class="btn-primary w-full justify-center">
+              <span class="iconify" data-icon="lucide:send" data-width="16"></span>
+              Send Message
+            </button>
+          </form>
+        </div>
+
+        <!-- OFFICE INFO (2 cols) -->
+        <div class="lg:col-span-2 reveal-right">
+          <div class="card-base mb-6">
+            <h3 class="text-white text-lg font-medium mb-6">Office Information</h3>
+
+            <div class="space-y-5">
+              <div class="flex items-start gap-4">
+                <div class="w-10 h-10 rounded-lg bg-[rgba(212,168,67,0.1)] flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <span class="iconify text-[var(--accent-gold)]" data-icon="lucide:map-pin" data-width="18"></span>
+                </div>
+                <div>
+                  <p class="text-white text-sm font-medium mb-1">Head Office</p>
+                  <p class="text-[var(--text-secondary)] text-xs leading-relaxed">Holy Cross Lake View SSS<br>Jinja, Uganda</p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-4">
+                <div class="w-10 h-10 rounded-lg bg-[rgba(42,82,152,0.2)] flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <span class="iconify text-[var(--accent-blue-light)]" data-icon="lucide:phone" data-width="18"></span>
+                </div>
+                <div>
+                  <p class="text-white text-sm font-medium mb-1">General Line</p>
+                  <p class="text-[var(--text-secondary)] text-xs">+256 755 261 254</p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-4">
+                <div class="w-10 h-10 rounded-lg bg-[rgba(212,168,67,0.1)] flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <span class="iconify text-[var(--accent-gold)]" data-icon="lucide:mail" data-width="18"></span>
+                </div>
+                <div>
+                  <p class="text-white text-sm font-medium mb-1">General Email</p>
+                  <p class="text-[var(--text-secondary)] text-xs">kephache55@gmail.com</p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-4">
+                <div class="w-10 h-10 rounded-lg bg-[rgba(42,82,152,0.2)] flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <span class="iconify text-[var(--accent-blue-light)]" data-icon="lucide:clock" data-width="18"></span>
+                </div>
+                <div>
+                  <p class="text-white text-sm font-medium mb-1">Working Hours</p>
+                  <p class="text-[var(--text-secondary)] text-xs">Mon – Fri: 8:00 AM – 5:00 PM<br>Sat: 9:00 AM – 1:00 PM</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Map -->
+          <div class="card-base p-0 overflow-hidden">
+            <iframe src="https://maps.google.com/maps?q=Holy+Cross+Lake+View+S.S.S,+Wanyange&output=embed" width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAM MEMBERS SECTION -->
+  <section class="py-24 md:py-32 relative" style="background: var(--bg-primary);">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <div class="section-tag mx-auto mb-4 reveal">
+          <span class="iconify" data-icon="lucide:users" data-width="14"></span>
+          Our Leadership
+        </div>
+        <h2 class="section-title reveal stagger-1">Get in Touch <span class="text-[var(--accent-gold)]" style="font-style:italic;">Directly</span></h2>
+        <p class="section-subtitle mx-auto mt-4 reveal stagger-2">Reach out to any member of our leadership team.</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+
+        <!-- CEO -->
+        <div class="team-card tilt-card reveal stagger-1">
+          <div class="tilt-inner">
+            <div class="image-container"><img src="res/team/cks.jpg" alt="Mr. Cherop Kepha Siya" class="headshot"><div class="image-overlay" oncontextmenu="return false;"></div></div>
+            <h3 class="text-white text-base font-medium">Mr. Cherop Kepha</h3>
+            <div class="title-badge mb-4">Chief Executive Officer</div>
+            <div class="space-y-0">
+              <div class="contact-item">
+                <span class="iconify text-[var(--accent-gold)]" data-icon="lucide:phone" data-width="14"></span>
+                <a href="tel:+256755261254">+256 755 261 254</a>
+              </div>
+              <div class="contact-item">
+                <span class="iconify text-[var(--accent-gold)]" data-icon="lucide:mail" data-width="14"></span>
+                <a href="mailto:kephache55@gmail.com">Email Me</a>
+              </div>
+              <div class="contact-item">
+                <span class="iconify text-green-500" data-icon="lucide:message-circle" data-width="14"></span>
+                <a href="https://wa.me/256755261254" target="_blank" rel="noopener">WhatsApp</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CTO -->
+        <div class="team-card tilt-card reveal stagger-2">
+          <div class="tilt-inner">
+            <div class="image-container"><img src="res/team/headshot_daniel.png" alt="Mr. Mukisa Daniel" class="headshot"><div class="image-overlay" oncontextmenu="return false;"></div></div>
+            <h3 class="text-white text-base font-medium">Mr. Mukisa Daniel</h3>
+            <div class="title-badge mb-4">Chief Technical Officer</div>
+            <div class="space-y-0">
+              <div class="contact-item">
+                <span class="iconify text-[var(--accent-gold)]" data-icon="lucide:phone" data-width="14"></span>
+                <a href="tel:+256763746381">+256 763 746 381</a>
+              </div>
+              <div class="contact-item">
+                <span class="iconify text-[var(--accent-gold)]" data-icon="lucide:mail" data-width="14"></span>
+                <a href="mailto:ellaish27@gmail.com">Email Me</a>
+              </div>
+              <div class="contact-item">
+                <span class="iconify text-green-500" data-icon="lucide:message-circle" data-width="14"></span>
+                <a href="https://wa.me/256763746381" target="_blank" rel="noopener">WhatsApp</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CMO -->
+        <div class="team-card tilt-card reveal stagger-3">
+          <div class="tilt-inner">
+            <div class="image-container"><img src="res/team/_doe.jpg" alt="Mr. Nuwagaba Innocent" class="headshot"><div class="image-overlay" oncontextmenu="return false;"></div></div>
+            <h3 class="text-white text-base font-medium">Mr. Nuwagaba Innocent</h3>
+            <div class="title-badge mb-4">Chief Marketing Officer</div>
+            <div class="space-y-0">
+              <div class="contact-item">
+                <span class="iconify text-[var(--accent-gold)]" data-icon="lucide:phone" data-width="14"></span>
+                <a href="tel:+256709267439">+256 709 267 439</a>
+              </div>
+              <div class="contact-item">
+                <span class="iconify text-[var(--accent-gold)]" data-icon="lucide:mail" data-width="14"></span>
+                <a href="mailto:innocentnuwa1jb@gmail.com">Email Me</a>
+              </div>
+              <div class="contact-item">
+                <span class="iconify text-green-500" data-icon="lucide:message-circle" data-width="14"></span>
+                <a href="https://wa.me/256709267439" target="_blank" rel="noopener">WhatsApp</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- QA Officer -->
+        <div class="team-card tilt-card reveal stagger-4">
+          <div class="tilt-inner">
+            <div class="image-container"><img src="res/team/nejjo.jpg" alt="Ms. Nejjo Hussein" class="headshot"><div class="image-overlay" oncontextmenu="return false;"></div></div>
+            <h3 class="text-white text-base font-medium">Ms. Nejjo Hussein</h3>
+            <div class="title-badge mb-4">Quality Assurance Officer</div>
+            <div class="space-y-0">
+              <div class="contact-item">
+                <span class="iconify text-[var(--accent-gold)]" data-icon="lucide:phone" data-width="14"></span>
+                <a href="tel:+266778181063">+266 778 181 063</a>
+              </div>
+              <div class="contact-item">
+                <span class="iconify text-[var(--accent-gold)]" data-icon="lucide:mail" data-width="14"></span>
+                <a href="mailto:nejjohusseinadamz@gmail.com">Email Me</a>
+              </div>
+              <div class="contact-item">
+                <span class="iconify text-green-500" data-icon="lucide:message-circle" data-width="14"></span>
+                <a href="https://wa.me/266778181063" target="_blank" rel="noopener">WhatsApp</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Finance Manager -->
+        <div class="team-card tilt-card reveal stagger-5">
+          <div class="tilt-inner">
+            <div class="image-container"><img src="res/team/_doe.jpg" alt="Ms. Alupo Angella" class="headshot"><div class="image-overlay" oncontextmenu="return false;"></div></div>
+            <h3 class="text-white text-base font-medium">Ms. Alupo Angella</h3>
+            <div class="title-badge mb-4">Finance Manager</div>
+            <div class="space-y-0">
+              <div class="contact-item">
+                <span class="iconify text-[var(--accent-gold)]" data-icon="lucide:phone" data-width="14"></span>
+                <a href="tel:+256701896169">+256 701 896 169</a>
+              </div>
+              <div class="contact-item">
+                <span class="iconify text-[var(--accent-gold)]" data-icon="lucide:mail" data-width="14"></span>
+                <a href="mailto:angelicahartley684@gmail.com">Email me</a>
+              </div>
+              <div class="contact-item">
+                <span class="iconify text-green-500" data-icon="lucide:message-circle" data-width="14"></span>
+                <a href="https://wa.me/256701896169" target="_blank" rel="noopener">WhatsApp</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ QUICK SECTION -->
+  <section class="py-24 md:py-32 relative">
+    <div class="max-w-3xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <div class="section-tag mx-auto mb-4 reveal">
+          <span class="iconify" data-icon="lucide:help-circle" data-width="14"></span>
+          FAQ
+        </div>
+        <h2 class="section-title reveal stagger-1">Common <span class="text-[var(--accent-gold)]" style="font-style:italic;">Questions</span></h2>
+      </div>
+
+      <div class="space-y-4">
+        <!-- FAQ 1 -->
+        <div class="card-base reveal stagger-1 faq-item" style="cursor:pointer;" onclick="this.classList.toggle('faq-open')">
+          <div class="flex items-center justify-between">
+            <h3 class="text-white text-sm font-medium pr-4">How long does it take to build a school management system?</h3>
+            <span class="iconify text-[var(--accent-gold)] flex-shrink-0 faq-icon transition-transform duration-300" data-icon="lucide:plus" data-width="18"></span>
+          </div>
+          <div class="faq-answer overflow-hidden max-h-0 transition-all duration-500">
+            <p class="text-[var(--text-secondary)] text-sm leading-relaxed pt-4">Depending on the scope, a standard school management system takes 8–16 weeks from discovery to launch. Complex multi-campus deployments may take longer. We provide a detailed timeline during the discovery phase.</p>
+          </div>
+        </div>
+        <!-- FAQ 2 -->
+        <div class="card-base reveal stagger-2 faq-item" style="cursor:pointer;" onclick="this.classList.toggle('faq-open')">
+          <div class="flex items-center justify-between">
+            <h3 class="text-white text-sm font-medium pr-4">Do you offer ongoing support and maintenance?</h3>
+            <span class="iconify text-[var(--accent-gold)] flex-shrink-0 faq-icon transition-transform duration-300" data-icon="lucide:plus" data-width="18"></span>
+          </div>
+          <div class="faq-answer overflow-hidden max-h-0 transition-all duration-500">
+            <p class="text-[var(--text-secondary)] text-sm leading-relaxed pt-4">Absolutely. Every project comes with 12 months of free support and maintenance. After that, we offer flexible support packages tailored to your needs — from basic bug fixes to full managed services.</p>
+          </div>
+        </div>
+        <!-- FAQ 3 -->
+        <div class="card-base reveal stagger-3 faq-item" style="cursor:pointer;" onclick="this.classList.toggle('faq-open')">
+          <div class="flex items-center justify-between">
+            <h3 class="text-white text-sm font-medium pr-4">Can your software integrate with existing systems?</h3>
+            <span class="iconify text-[var(--accent-gold)] flex-shrink-0 faq-icon transition-transform duration-300" data-icon="lucide:plus" data-width="18"></span>
+          </div>
+          <div class="faq-answer overflow-hidden max-h-0 transition-all duration-500">
+            <p class="text-[var(--text-secondary)] text-sm leading-relaxed pt-4">Yes. We build our systems with APIs that can integrate with accounting software, payment gateways (MTN Mobile Money, Visa, etc.), biometric devices, government reporting systems, and more.</p>
+          </div>
+        </div>
+        <!-- FAQ 4 -->
+        <div class="card-base reveal stagger-4 faq-item" style="cursor:pointer;" onclick="this.classList.toggle('faq-open')">
+          <div class="flex items-center justify-between">
+            <h3 class="text-white text-sm font-medium pr-4">What is the pricing model?</h3>
+            <span class="iconify text-[var(--accent-gold)] flex-shrink-0 faq-icon transition-transform duration-300" data-icon="lucide:plus" data-width="18"></span>
+          </div>
+          <div class="faq-answer overflow-hidden max-h-0 transition-all duration-500">
+            <p class="text-[var(--text-secondary)] text-sm leading-relaxed pt-4">We offer both one-time licensing and subscription-based models depending on the solution. We provide transparent quotes after the discovery phase — no hidden fees. Contact us for a custom proposal.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer py-12">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+        <div class="flex items-center gap-3">
+          <div class="image-container"><img src="https://z-cdn-media.chatglm.cn/files/9029702b-c927-4c48-9376-8bdad121d966.png?auth_key=1877895135-c94da010b8a84ee49d18d6f2d64744d9-0-881f1f0a33c6cf48a7242c39f0225626" alt="LaviTech" class="h-8 w-8 object-contain"><div class="image-overlay" oncontextmenu="return false;"></div></div>
+          <span class="text-white text-sm">© <span id="current-year"></span> LaviTech. All rights reserved.</span>
+        </div>
+        <div class="flex items-center gap-3">
+          <span class="text-[var(--text-muted)] text-xs uppercase tracking-widest">Powered by:</span>
+          <div class="image-container"><img src="https://z-cdn-media.chatglm.cn/files/a350db93-f9d4-41fc-a2a7-0d4c314ed376.png?auth_key=1877895135-d2fbfb4387914b7eb0d17e6d24f3a646-0-c90681297267a85a55196c3c5141895e" alt="CKS-Tech" class="powered-logo h-8"><div class="image-overlay" oncontextmenu="return false;"></div></div>
+          <span class="text-[var(--text-muted)]">&</span>
+          <div class="image-container"><img src="https://z-cdn-media.chatglm.cn/files/6dd93892-dfa5-4820-abb8-b9864932c148.png?auth_key=1877895135-7a87295d19b7455c829c4d2890f780ac-0-6464629db196fef3a02fcf6c93779f34" alt="D@in Corp" class="powered-logo h-8"><div class="image-overlay" oncontextmenu="return false;"></div></div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- FAQ Toggle Script (inline for this page) -->
+  <style>
+    .faq-item.faq-open .faq-answer { max-height: 200px; }
+    .faq-item.faq-open .faq-icon { transform: rotate(45deg); }
+  </style>
+
+  <script src="js/main.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+<script>
+/* =========================
+   1. INIT EMAILJS
+========================= */
+(function () {
+  emailjs.init("3uEtJXCE4UyUQhUWU");
+})();
+
+/* =========================
+   2. FORM HANDLER
+========================= */
+document.getElementById("contactForm").addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  const btn = this.querySelector("button");
+
+  // Disable button to prevent double sends
+  btn.disabled = true;
+  btn.innerText = "Sending...";
+
+  /* =========================
+     3. GET USER INPUTS
+  ========================== */
+  const name = document.getElementById("from_name").value.trim();
+  const email = document.getElementById("from_email").value.trim();
+  const subject = document.getElementById("subject").value.trim();
+  const message = document.getElementById("message").value.trim();
+
+  /* =========================
+     4. GENERATE TIME DATA (AT SUBMIT MOMENT)
+  ========================== */
+  const now = new Date();
+
+  const time = now.toLocaleString("en-GB", {
+    dateStyle: "medium",
+    timeStyle: "short"
+  });
+
+  const timezone = "EAT (East Africa Time)";
+  const system_timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+
+  /* =========================
+     5. SEND EMAIL VIA EMAILJS
+  ========================== */
+  emailjs.send("service_1cpu0aa", "template_7bkdhlr", {
+    name: name,
+    email: email,
+    subject: subject,
+    message: message,
+
+    time: time,
+    timezone: timezone,
+    year:year,
+    system_timezone: system_timezone
+  })
+
+  /* =========================
+     6. SUCCESS HANDLER
+  ========================== */
+  .then(function (response) {
+    console.log("SUCCESS:", response);
+
+    alert("✅ Message sent successfully!");
+
+    document.getElementById("contactForm").reset();
+  })
+
+  /* =========================
+     7. ERROR HANDLER
+  ========================== */
+  .catch(function (error) {
+    console.log("ERROR:", error);
+
+    alert("❌ Failed to send message. Check console.");
+  })
+
+  /* =========================
+     8. RESET BUTTON STATE
+  ========================== */
+  .finally(function () {
+    btn.disabled = false;
+    btn.innerText = "Send Message";
+  });
+});
+</script>
+
+<!-- Dynamic Year Script -->
+<script>
+  document.getElementById('current-year').textContent = new Date().getFullYear();
+  const year = new Date().getFullYear();
+</script>
+</body>
+</html>

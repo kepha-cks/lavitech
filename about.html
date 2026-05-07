@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us — LaviTech</title>
+  <link rel="icon" href="res/logo.png">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav class="nav-glass fixed top-0 left-0 right-0 z-50">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-3">
+        <div class="image-container">
+          <div class="image-container"><img src="https://z-cdn-media.chatglm.cn/files/9029702b-c927-4c48-9376-8bdad121d966.png?auth_key=1877895135-c94da010b8a84ee49d18d6f2d64744d9-0-881f1f0a33c6cf48a7242c39f0225626" alt="LaviTech" class="h-12 w-12 object-contain"><div class="image-overlay" oncontextmenu="return false;"></div></div>
+          <div class="image-overlay" oncontextmenu="return false;"></div>
+        </div>
+        <span class="text-white font-semibold text-lg tracking-wide">LaviTech</span>
+      </a>
+      <div class="hidden md:flex items-center gap-8">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="services.html" class="nav-link">Services</a>
+        <a href="portfolio.html" class="nav-link">Portfolio</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </div>
+      <div class="hidden md:flex items-center gap-3 border-l border-[rgba(255,255,255,0.1)] pl-6">
+        <label for="themeSelectorDesktop" class="text-[var(--text-secondary)] text-xs uppercase tracking-[0.24em]">Theme</label>
+        <select id="themeSelectorDesktop" class="theme-selector">
+          <option value="default">Default</option>
+          <option value="light">Light</option>
+          <option value="dark">Dark</option>
+          <option value="neon">Neon</option>
+        </select>
+      </div>
+      <div class="hamburger md:hidden"><span></span><span></span><span></span></div>
+    </div>
+  </nav>
+  <div id="quick-menu">
+  <div class="menu-item" data-link="index.html"><span class="iconify" data-icon="lucide:home" data-width="18"></span> Home</div>
+  <div class="menu-item" data-link="portfolio.html"><span class="iconify" data-icon="lucide:code" data-width="18"></span> Portfolio</div>
+  <div class="menu-item" data-link="about.html"><span class="iconify" data-icon="lucide:users" data-width="18"></span> About</div>
+  <div class="menu-item" data-link="contact.html"><span class="iconify" data-icon="lucide:mail" data-width="18"></span> Contact</div>
+  <div class="menu-item" data-link="services.html"><span class="iconify" data-icon="lucide:wrench" data-width="18"></span> Services</div>
+</div>
+  <div class="mobile-menu">
+    <a href="index.html" class="nav-link">Home</a>
+    <a href="about.html" class="nav-link">About</a>
+    <a href="services.html" class="nav-link">Services</a>
+    <a href="portfolio.html" class="nav-link">Portfolio</a>
+    <a href="contact.html" class="nav-link">Contact</a>
+    <div class="px-6 py-4 border-t border-[rgba(255,255,255,0.1)]">
+      <label class="block text-[var(--text-secondary)] text-xs uppercase tracking-[0.24em] mb-2">Theme</label>
+      <select class="theme-selector">
+        <option value="default">Default</option>
+        <option value="light">Light</option>
+        <option value="dark">Dark</option>
+        <option value="neon">Neon</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero-section relative" style="min-height:70vh;">
+    <div class="hero-gradient"></div>
+    <div class="particles-container absolute inset-0 z-[1]"></div>
+    <div class="parallax-shape w-72 h-72 bg-blue-600 top-20 right-0" data-parallax="-0.25" style="position:absolute;"></div>
+    <div class="max-w-7xl mx-auto px-6 w-full relative z-10 pt-20">
+      <div class="max-w-3xl">
+        <div class="section-tag mb-6 reveal">
+          <span class="iconify" data-icon="lucide:users" data-width="14"></span>
+          About LaviTech
+        </div>
+        <h1 class="section-title mb-6 reveal stagger-1">
+          Our Story, Our <span class="text-[var(--accent-gold)]" style="font-style:italic;">Mission</span>
+        </h1>
+        <div class="text-xl text-[var(--text-secondary)] reveal stagger-2" style="min-height:36px;">
+          <span data-typewriter="Founded on Excellence||Driven by Innovation||Committed to Schools||Building Tomorrow's Solutions" data-speed="65" data-delete-speed="30" data-pause="2200"></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPANY STORY TIMELINE -->
+  <section class="py-24 md:py-32 relative">
+    <div class="max-w-5xl mx-auto px-6">
+      <div class="text-center mb-20">
+        <h2 class="section-title reveal">Our <span class="text-[var(--accent-gold)]" style="font-style:italic;">Journey</span></h2>
+      </div>
+
+      <div class="relative">
+        <div class="timeline-line hidden md:block"></div>
+
+        <!-- Timeline Item 1 -->
+        <div class="relative mb-16 md:mb-24 reveal-left">
+          <div class="timeline-dot hidden md:block" style="top:20px;"></div>
+          <div class="md:grid md:grid-cols-2 md:gap-16">
+            <div class="md:text-right md:pr-12">
+              <span class="text-[var(--accent-gold)] text-sm font-semibold tracking-widest">2025</span>
+              <h3 class="text-white text-2xl font-medium mt-2 mb-3" style="font-family:var(--font-serif);">The Beginning</h3>
+              <p class="text-[var(--text-secondary)] text-sm leading-relaxed">LaviTech was founded with a single mission: to bridge the technology gap in Uganda and Africa, reshaping application software.</p>
+            </div>
+            <div class="hidden md:block"></div>
+          </div>
+        </div>
+
+        <!-- Timeline Item 2 -->
+        <div class="relative mb-16 md:mb-24 reveal-right">
+          <div class="timeline-dot hidden md:block" style="top:20px;"></div>
+          <div class="md:grid md:grid-cols-2 md:gap-16">
+            <div class="hidden md:block"></div>
+            <div class="md:pl-12">
+              <span class="text-[var(--accent-gold)] text-sm font-semibold tracking-widest">2025</span>
+              <h3 class="text-white text-2xl font-medium mt-2 mb-3" style="font-family:var(--font-serif);">First Major Deployment</h3>
+              <p class="text-[var(--text-secondary)] text-sm leading-relaxed">Deployed our <a href="" style="color: var(--accent-gold);">Election Management System (EMS)</a> to <a href="https://holycross-lakeview.sc.ug/" target="_blank" style="color: var(--accent-gold);"><i>Holy Cross Lake View SSS</i></a>. It worked out so well and it was stored for future deployments in other schools that may need such to manage the elections seamlessly</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Timeline Item 3 -->
+        <div class="relative mb-16 md:mb-24 reveal-left">
+          <div class="timeline-dot hidden md:block" style="top:20px;"></div>
+          <div class="md:grid md:grid-cols-2 md:gap-16">
+            <div class="md:text-right md:pr-12">
+              <span class="text-[var(--accent-gold)] text-sm font-semibold tracking-widest">2026</span>
+              <h3 class="text-white text-2xl font-medium mt-2 mb-3" style="font-family:var(--font-serif);">CareerNet</h3>
+              <p class="text-[var(--text-secondary)] text-sm leading-relaxed">This is a platform designed to connect students with career opportunities and provide them with the tools they need to succeed in the job market. And it is made for a school Careers department, with all necessary information from UNEB, including information about the weighting system, connecting to the future careers that they would choose on University.</p>
+            </div>
+            <div class="hidden md:block"></div>
+          </div>
+        </div>
+
+        <!-- Timeline Item 4 -->
+        <div class="relative reveal-right">
+          <div class="timeline-dot hidden md:block" style="top:20px;"></div>
+          <div class="md:grid md:grid-cols-2 md:gap-16">
+            <div class="hidden md:block"></div>
+            <div class="md:pl-12">
+              <span class="text-[var(--accent-gold)] text-sm font-semibold tracking-widest">2026</span>
+              <h3 class="text-white text-2xl font-medium mt-2 mb-3" style="font-family:var(--font-serif);">The Future is Now</h3>
+              <p class="text-[var(--text-secondary)] text-sm leading-relaxed">Lavitech Moved from school to enterprise software solutions, starting with the Business Management System (BMS).</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MISSION & VISION — 3D FLIP CARDS -->
+  <section class="py-24 md:py-32 relative" style="background: var(--bg-primary);">
+    <div class="max-w-5xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 class="section-title reveal">Mission & <span class="text-[var(--accent-gold)]" style="font-style:italic;">Vision</span></h2>
+        <p class="section-subtitle mx-auto mt-4 reveal stagger-1">Click the cards to flip them.</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto">
+        <!-- Mission -->
+        <div class="flip-card reveal stagger-1" style="height:320px;">
+          <div class="flip-card-inner">
+            <div class="flip-card-front card-base flex flex-col items-center justify-center text-center">
+              <div class="w-16 h-16 rounded-full bg-[rgba(212,168,67,0.15)] flex items-center justify-center mb-4">
+                <span class="iconify text-[var(--accent-gold)]" data-icon="lucide:target" data-width="32"></span>
+              </div>
+              <h3 class="text-white text-2xl font-medium" style="font-family:var(--font-serif);">Our Mission</h3>
+              <p class="text-[var(--text-muted)] text-sm mt-2">Click to read more</p>
+            </div>
+            <div class="flip-card-back card-base flex items-center justify-center p-8" style="background: linear-gradient(135deg, var(--bg-card), var(--accent-blue));">
+              <p class="text-white text-sm leading-relaxed text-center">To empower educational institutions and businesses with innovative, reliable, and user-friendly software solutions that drive efficiency, enhance learning outcomes, and enable data-driven decision making.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Vision -->
+        <div class="flip-card reveal stagger-2" style="height:320px;">
+          <div class="flip-card-inner">
+            <div class="flip-card-front card-base flex flex-col items-center justify-center text-center">
+              <div class="w-16 h-16 rounded-full bg-[rgba(42,82,152,0.2)] flex items-center justify-center mb-4">
+                <span class="iconify text-[var(--accent-blue-light)]" data-icon="lucide:eye" data-width="32"></span>
+              </div>
+              <h3 class="text-white text-2xl font-medium" style="font-family:var(--font-serif);">Our Vision</h3>
+              <p class="text-[var(--text-muted)] text-sm mt-2">Click to read more</p>
+            </div>
+            <div class="flip-card-back card-base flex items-center justify-center p-8" style="background: linear-gradient(135deg, var(--accent-blue), var(--bg-card));">
+              <p class="text-white text-sm leading-relaxed text-center">To be Uganda and Africa's most trusted custom software company for education — a household name synonymous with quality, innovation, and the relentless pursuit of excellence through technology.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CORE VALUES -->
+  <section class="py-24 md:py-32 relative">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <div class="section-tag mx-auto mb-4 reveal">
+          <span class="iconify" data-icon="lucide:heart" data-width="14"></span>
+          Our Values
+        </div>
+        <h2 class="section-title reveal stagger-1">What <span class="text-[var(--accent-gold)]" style="font-style:italic;">Drives</span> Us</h2>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="tilt-card card-base text-center reveal stagger-1">
+          <div class="tilt-inner">
+            <div class="w-14 h-14 rounded-xl bg-[rgba(212,168,67,0.1)] flex items-center justify-center mx-auto mb-4">
+              <span class="iconify text-[var(--accent-gold)]" data-icon="lucide:shield-check" data-width="28"></span>
+            </div>
+            <h3 class="text-white text-lg font-medium mb-2">Excellence</h3>
+            <p class="text-xs text-[var(--text-secondary)] leading-relaxed">Every line of code, every pixel, every interaction — held to the highest standard.</p>
+          </div>
+        </div>
+        <div class="tilt-card card-base text-center reveal stagger-2">
+          <div class="tilt-inner">
+            <div class="w-14 h-14 rounded-xl bg-[rgba(42,82,152,0.2)] flex items-center justify-center mx-auto mb-4">
+              <span class="iconify text-[var(--accent-blue-light)]" data-icon="lucide:lightbulb" data-width="28"></span>
+            </div>
+            <h3 class="text-white text-lg font-medium mb-2">Innovation</h3>
+            <p class="text-xs text-[var(--text-secondary)] leading-relaxed">We stay ahead of the curve, adopting new technologies to solve old problems.</p>
+          </div>
+        </div>
+        <div class="tilt-card card-base text-center reveal stagger-3">
+          <div class="tilt-inner">
+            <div class="w-14 h-14 rounded-xl bg-[rgba(212,168,67,0.1)] flex items-center justify-center mx-auto mb-4">
+              <span class="iconify text-[var(--accent-gold)]" data-icon="lucide:handshake" data-width="28"></span>
+            </div>
+            <h3 class="text-white text-lg font-medium mb-2">Integrity</h3>
+            <p class="text-xs text-[var(--text-secondary)] leading-relaxed">Transparent processes, honest communication, and ethical business practices.</p>
+          </div>
+        </div>
+        <div class="tilt-card card-base text-center reveal stagger-4">
+          <div class="tilt-inner">
+            <div class="w-14 h-14 rounded-xl bg-[rgba(42,82,152,0.2)] flex items-center justify-center mx-auto mb-4">
+              <span class="iconify text-[var(--accent-blue-light)]" data-icon="lucide:users" data-width="28"></span>
+            </div>
+            <h3 class="text-white text-lg font-medium mb-2">Client-Centric</h3>
+            <p class="text-xs text-[var(--text-secondary)] leading-relaxed">Your success is our success. We listen, adapt, and deliver beyond expectations.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAM PREVIEW -->
+  <section class="py-24 md:py-32 relative" style="background: var(--bg-primary);">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <div class="section-tag mx-auto mb-4 reveal">
+          <span class="iconify" data-icon="lucide:award" data-width="14"></span>
+          Leadership
+        </div>
+        <h2 class="section-title reveal stagger-1">Meet Our <span class="text-[var(--accent-gold)]" style="font-style:italic;">Team</span></h2>
+        <p class="section-subtitle mx-auto mt-4 reveal stagger-2">The minds driving LaviTech forward.</p>
+      </div>
+
+      <div class="flex flex-wrap justify-center gap-8">
+        <div class="text-center reveal stagger-1 group">
+          <div class="w-28 h-28 rounded-full overflow-hidden border-2 border-[var(--border-subtle)] mx-auto mb-3 transition-all duration-500 group-hover:border-[var(--accent-gold)] group-hover:shadow-[0_0_30px_rgba(212,168,67,0.3)]">
+            <div class="image-container"><img src="res/team/cks.jpg" alt="Mr. Cherop Kepha" class="w-full h-full object-cover"><div class="image-overlay" oncontextmenu="return false;"></div></div>
+          </div>
+          <p class="text-white text-sm font-medium">Mr. Cherop Kepha</p>
+          <p class="text-[var(--accent-gold)] text-xs">CEO</p>
+        </div>
+        <div class="text-center reveal stagger-2 group">
+          <div class="w-28 h-28 rounded-full overflow-hidden border-2 border-[var(--border-subtle)] mx-auto mb-3 transition-all duration-500 group-hover:border-[var(--accent-gold)] group-hover:shadow-[0_0_30px_rgba(212,168,67,0.3)]">
+            <div class="image-container"><img src="res/team/headshot_daniel.png" alt="Mr. Mukisa Daniel" class="w-full h-full object-cover"><div class="image-overlay" oncontextmenu="return false;"></div></div>
+          </div>
+          <p class="text-white text-sm font-medium">Mr. Mukisa Daniel</p>
+          <p class="text-[var(--accent-gold)] text-xs">CTO</p>
+        </div>
+        <div class="text-center reveal stagger-3 group">
+          <div class="w-28 h-28 rounded-full overflow-hidden border-2 border-[var(--border-subtle)] mx-auto mb-3 transition-all duration-500 group-hover:border-[var(--accent-gold)] group-hover:shadow-[0_0_30px_rgba(212,168,67,0.3)]">
+            <div class="image-container"><img src="res/team/_doe.jpg" alt="Mr. Nuwagaba Innocent" class="w-full h-full object-cover"><div class="image-overlay" oncontextmenu="return false;"></div></div>
+          </div>
+          <p class="text-white text-sm font-medium">Mr. Nuwagaba Innocent</p>
+          <p class="text-[var(--accent-gold)] text-xs">CMO</p>
+        </div>
+        <div class="text-center reveal stagger-4 group">
+          <div class="w-28 h-28 rounded-full overflow-hidden border-2 border-[var(--border-subtle)] mx-auto mb-3 transition-all duration-500 group-hover:border-[var(--accent-gold)] group-hover:shadow-[0_0_30px_rgba(212,168,67,0.3)]">
+            <div class="image-container"><img src="res/team/nejjo.jpg" alt="Ms. Nejjo Hussein" class="w-full h-full object-cover"><div class="image-overlay" oncontextmenu="return false;"></div></div>
+          </div>
+          <p class="text-white text-sm font-medium">Ms. Nejjo Hussein</p>
+          <p class="text-[var(--accent-gold)] text-xs">QA Officer</p>
+        </div>
+        <div class="text-center reveal stagger-5 group">
+          <div class="w-28 h-28 rounded-full overflow-hidden border-2 border-[var(--border-subtle)] mx-auto mb-3 transition-all duration-500 group-hover:border-[var(--accent-gold)] group-hover:shadow-[0_0_30px_rgba(212,168,67,0.3)]">
+            <div class="image-container"><img src="res/team/_doe.jpg" alt="Ms. Alupo Angella" class="w-full h-full object-cover"><div class="image-overlay" oncontextmenu="return false;"></div></div>
+          </div>
+          <p class="text-white text-sm font-medium">Ms. Alupo Angella</p>
+          <p class="text-[var(--accent-gold)] text-xs">Finance Manager</p>
+        </div>
+      </div>
+
+      <div class="text-center mt-12 reveal">
+        <a href="contact.html" class="btn-outline">
+          Contact the Team
+          <span class="iconify" data-icon="lucide:arrow-right" data-width="16"></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer py-12">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+        <div class="flex items-center gap-3">
+          <div class="image-container">
+            <div class="image-container"><img src="https://z-cdn-media.chatglm.cn/files/9029702b-c927-4c48-9376-8bdad121d966.png?auth_key=1877895135-c94da010b8a84ee49d18d6f2d64744d9-0-881f1f0a33c6cf48a7242c39f0225626" alt="LaviTech" class="h-8 w-8 object-contain"><div class="image-overlay" oncontextmenu="return false;"></div></div>
+            <div class="image-overlay" oncontextmenu="return false;"></div>
+          </div>
+          <span class="text-white text-sm">© <span id="current-year"></span> LaviTech. All rights reserved.</span>
+        </div>
+        <div class="flex items-center gap-3">
+          <span class="text-[var(--text-muted)] text-xs uppercase tracking-widest">Powered by:</span>
+          <div class="image-container">
+            <div class="image-container"><img src="https://z-cdn-media.chatglm.cn/files/a350db93-f9d4-41fc-a2a7-0d4c314ed376.png?auth_key=1877895135-d2fbfb4387914b7eb0d17e6d24f3a646-0-c90681297267a85a55196c3c5141895e" alt="CKS-Tech" class="powered-logo h-8"><div class="image-overlay" oncontextmenu="return false;"></div></div>
+            <div class="image-overlay" oncontextmenu="return false;"></div>
+          </div>
+          <span class="text-[var(--text-muted)]">&</span>
+          <div class="image-container">
+            <div class="image-container"><img src="https://z-cdn-media.chatglm.cn/files/6dd93892-dfa5-4820-abb8-b9864932c148.png?auth_key=1877895135-7a87295d19b7455c829c4d2890f780ac-0-6464629db196fef3a02fcf6c93779f34" alt="D@in Corp" class="powered-logo h-8"><div class="image-overlay" oncontextmenu="return false;"></div></div>
+            <div class="image-overlay" oncontextmenu="return false;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+
+  <!-- Dynamic Year Script -->
+  <script>
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

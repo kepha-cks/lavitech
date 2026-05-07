@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LaviTech — Custom Software for Schools & Beyond</title>
+  <link rel="icon" href="res/logo.png">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+  <!-- Link to your local stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- ADDED: Styles for the 3D Word Swipe Animation -->
+  <style>
+    /* ... Existing User Styles ... */
+    .word-box {
+      display: inline-block;
+      position: relative;
+      height: 1.2em; 
+      overflow: hidden;
+      vertical-align: bottom;
+      min-width: 160px; 
+      text-align: left;
+      transform-style: preserve-3d;
+    }
+
+    .word {
+      display: inline-block;
+      color: var(--accent-gold); 
+      transform-origin: center bottom;
+      font-style: italic;
+    }
+
+    .animate-out {
+      animation: outAnim 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    }
+
+    .animate-in {
+      animation: inAnim 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    }
+
+    @keyframes outAnim {
+      0% { transform: rotateX(0deg) translateY(0); opacity: 1; }
+      100% { transform: rotateX(90deg) translateY(-100%); opacity: 0; }
+    }
+
+    @keyframes inAnim {
+      0% { transform: rotateX(-90deg) translateY(100%); opacity: 0; }
+      100% { transform: rotateX(0deg) translateY(0); opacity: 1; }
+    }
+
+    /* NEW CTA Section Styles */
+    .cta-section {
+      position: relative;
+      overflow: hidden;
+      /* Deep background color to make particles pop */
+      background-color: #0b1120; 
+    }
+
+    #cta-canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1; /* Behind content */
+      display: block;
+    }
+
+    /* Overlay to ensure text readability over particles */
+    .cta-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(11,17,32,0.6), rgba(11,17,32,0.9));
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    .cta-section .section-title,
+    .cta-section p,
+    .cta-section .btn-primary,
+    .cta-section .btn-outline {
+      position: relative;
+      z-index: 10;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav class="nav-glass fixed top-0 left-0 right-0 z-50">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-3">
+        <img src="res/logo.png" alt="LaviTech" class="h-12 w-12 object-contain">
+        <span class="text-white font-semibold text-lg tracking-wide">LaviTech</span>
+      </a>
+      <div class="hidden md:flex items-center gap-8">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="services.html" class="nav-link">Services</a>
+        <a href="portfolio.html" class="nav-link">Portfolio</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </div>
+      <div class="hidden md:flex items-center gap-3 border-l border-[rgba(255,255,255,0.1)] pl-6">
+        <label for="themeSelectorDesktop" class="text-[var(--text-secondary)] text-xs uppercase tracking-[0.24em]">Theme</label>
+        <select id="themeSelectorDesktop" class="theme-selector">
+          <option value="default">Default</option>
+          <option value="light">Light</option>
+          <option value="dark">Dark</option>
+          <option value="neon">Neon</option>
+        </select>
+      </div>
+      <div class="hamburger md:hidden">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </nav>
+  <div id="quick-menu">
+  <div class="menu-item" data-link="index.html"><span class="iconify" data-icon="lucide:home" data-width="18"></span> Home</div>
+  <div class="menu-item" data-link="portfolio.html"><span class="iconify" data-icon="lucide:code" data-width="18"></span> Portfolio</div>
+  <div class="menu-item" data-link="about.html"><span class="iconify" data-icon="lucide:users" data-width="18"></span> About</div>
+  <div class="menu-item" data-link="contact.html"><span class="iconify" data-icon="lucide:mail" data-width="18"></span> Contact</div>
+  <div class="menu-item" data-link="services.html"><span class="iconify" data-icon="lucide:wrench" data-width="18"></span> Services</div>
+</div>
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu">
+    <a href="index.html" class="nav-link">Home</a>
+    <a href="about.html" class="nav-link">About</a>
+    <a href="services.html" class="nav-link">Services</a>
+    <a href="portfolio.html" class="nav-link">Portfolio</a>
+    <a href="contact.html" class="nav-link">Contact</a>
+    <div class="px-6 py-4 border-t border-[rgba(255,255,255,0.1)]">
+      <label class="block text-[var(--text-secondary)] text-xs uppercase tracking-[0.24em] mb-2">Theme</label>
+      <select class="theme-selector">
+        <option value="default">Default</option>
+        <option value="light">Light</option>
+        <option value="dark">Dark</option>
+        <option value="neon">Neon</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- HERO SECTION -->
+  <section class="hero-section relative">
+    <div class="hero-gradient"></div>
+    <div class="particles-container absolute inset-0 z-[1]"></div>
+    <!-- Parallax Shapes -->
+    <div class="parallax-shape w-96 h-96 bg-blue-600 -top-20 -left-40" data-parallax="0.3" style="position:absolute;"></div>
+    <div class="parallax-shape w-80 h-80 bg-yellow-600 bottom-10 right-0" data-parallax="-0.2" style="position:absolute;"></div>
+
+    <div class="max-w-7xl mx-auto px-6 w-full relative z-10 pt-20">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <!-- Text Side -->
+        <div>
+          <div class="section-tag mb-6 reveal">
+            <span class="iconify" data-icon="lucide:sparkles" data-width="14"></span>
+            Custom Software Solutions
+          </div>
+          
+          <h1 class="section-title mb-6 reveal stagger-1">
+            Building the Future of 
+            <div class="word-box">
+              <span id="dynamic-word" class="word">Schools</span>
+            </div>
+          </h1>
+          
+          <div class="text-xl md:text-2xl text-[var(--text-secondary)] mb-8 reveal stagger-2" style="min-height:36px;">
+            <span data-typewriter="Empowering Institutions with Technology||Streamlining Administrative Processes||Innovating for Every Industry||Software That Works for You" data-speed="70" data-delete-speed="35" data-pause="2500"></span>
+          </div>
+          <p class="text-[var(--text-secondary)] mb-10 max-w-lg reveal stagger-3">
+            We design, develop, and deploy tailor-made software solutions that transform how institutions operate — from the lowest to highest department and everything in between.
+          </p>
+          <div class="flex flex-wrap gap-4 reveal stagger-4">
+            <a href="services.html" class="btn-primary">
+              Our Services
+              <span class="iconify" data-icon="lucide:arrow-right" data-width="16"></span>
+            </a>
+            <a href="contact.html" class="btn-outline">
+              Get in Touch
+            </a>
+          </div>
+        </div>
+        <!-- 3D Logo Side -->
+        <div class="flex justify-center reveal-scale stagger-3" style="perspective:1000px;">
+          <img src="res/logo.png" alt="LaviTech Logo" class="logo-3d-float w-72 h-72 md:w-96 md:h-96 object-contain">
+        </div>
+      </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 animate-bounce">
+      <span class="text-xs text-[var(--text-muted)] uppercase tracking-widest">Scroll</span>
+      <span class="iconify text-[var(--accent-gold)]" data-icon="lucide:chevron-down" data-width="20"></span>
+    </div>
+  </section>
+
+  <!-- ABOUT SNIPPET -->
+  <section class="py-24 md:py-32 relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <div class="reveal-left">
+          <div class="relative rounded-2xl overflow-hidden">
+            <img src="res/img1.png" alt="LaviTech Office" class="w-full h-80 md:h-[450px] object-cover" style="zoom: 75%;>
+            <div class="absolute inset-0 bg-gradient-to-t from-[var(--bg-deep)] via-transparent to-transparent"></div>
+            <div class="absolute bottom-6 left-6 right-6">
+              <div class="flex items-center gap-4">
+                <div class="w-12 h-12 rounded-full bg-[var(--accent-gold)] flex items-center justify-center">
+                  <span class="iconify text-[var(--bg-deep)]" data-icon="lucide:play" data-width="20"></span>
+                </div>
+                <div>
+                  <p class="text-white font-medium text-sm">Book a demo today</p>
+                  <p class="text-[var(--text-muted)] text-xs">Across the boundaries</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="reveal-right">
+          <div class="section-tag mb-4">
+            <span class="iconify" data-icon="lucide:info" data-width="14"></span>
+            Who We Are
+          </div>
+          <h2 class="section-title mb-6">Technology That <span class="text-[var(--accent-gold)]" style="font-style:italic;">Understands</span> What you need</h2>
+          <p class="text-[var(--text-secondary)] mb-6 leading-relaxed">
+            LaviTech is a custom software company born from a simple belief: all fields deserve technology built specifically for them — not generic tools forced to fit. We work closely with educators, administrators, and stakeholders to create software that solves real problems.
+          </p>
+          <p class="text-[var(--text-secondary)] mb-8 leading-relaxed">
+            We extend our expertise to businesses and organizations seeking bespoke digital solutions that drive efficiency and growth.
+          </p>
+          <a href="about.html" class="btn-outline text-sm">
+            Learn More About Us
+            <span class="iconify" data-icon="lucide:arrow-right" data-width="14"></span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES OVERVIEW -->
+  <section class="py-24 md:py-32 relative" style="background: var(--bg-primary);">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <div class="section-tag mx-auto mb-4 reveal">
+          <span class="iconify" data-icon="lucide:layers" data-width="14"></span>
+          What We Do
+        </div>
+        <h2 class="section-title mb-4 reveal stagger-1">Our Core <span class="text-[var(--accent-gold)]" style="font-style:italic;">Services</span></h2>
+        <p class="section-subtitle mx-auto reveal stagger-2">End-to-end software solutions tailored to your unique needs.</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Service 1 -->
+        <div class="tilt-card card-base reveal stagger-1">
+          <div class="tilt-inner">
+            <div class="w-14 h-14 rounded-xl bg-[rgba(212,168,67,0.1)] flex items-center justify-center mb-5">
+              <span class="iconify text-[var(--accent-gold)]" data-icon="lucide:school" data-width="28"></span>
+            </div>
+            <h3 class="text-white text-xl font-medium mb-3">School Management System</h3>
+            <p class="text-sm text-[var(--text-secondary)] leading-relaxed">Complete student records, grading, attendance, and reporting — all in one unified platform.</p>
+          </div>
+        </div>
+        <!-- Service 2 -->
+        <div class="tilt-card card-base reveal stagger-2">
+          <div class="tilt-inner">
+            <div class="w-14 h-14 rounded-xl bg-[rgba(42,82,152,0.2)] flex items-center justify-center mb-5">
+              <span class="iconify text-[var(--accent-blue-light)]" data-icon="lucide:book-open" data-width="28"></span>
+            </div>
+            <h3 class="text-white text-xl font-medium mb-3">Learning Management System</h3>
+            <p class="text-sm text-[var(--text-secondary)] leading-relaxed">Online classes, assignments, quizzes, and progress tracking for blended learning environments.</p>
+          </div>
+        </div>
+        <!-- Service 3 -->
+        <div class="tilt-card card-base reveal stagger-3">
+          <div class="tilt-inner">
+            <div class="w-14 h-14 rounded-xl bg-[rgba(212,168,67,0.1)] flex items-center justify-center mb-5">
+              <span class="iconify text-[var(--accent-gold)]" data-icon="lucide:wallet" data-width="28"></span>
+            </div>
+            <h3 class="text-white text-xl font-medium mb-3">Financial & ERP Solutions</h3>
+            <p class="text-sm text-[var(--text-secondary)] leading-relaxed">Fee management, payroll, accounting, and enterprise resource planning for institutions.</p>
+          </div>
+        </div>
+        <!-- Service 4 -->
+        <div class="tilt-card card-base reveal stagger-4">
+          <div class="tilt-inner">
+            <div class="w-14 h-14 rounded-xl bg-[rgba(42,82,152,0.2)] flex items-center justify-center mb-5">
+              <span class="iconify text-[var(--accent-blue-light)]" data-icon="lucide:smartphone" data-width="28"></span>
+            </div>
+            <h3 class="text-white text-xl font-medium mb-3">Mobile Applications</h3>
+            <p class="text-sm text-[var(--text-secondary)] leading-relaxed">Cross-platform mobile apps for businessmen, administrators and stakeholders to stay connected on the go.</p>
+          </div>
+        </div>
+        <!-- Service 5 -->
+        <div class="tilt-card card-base reveal stagger-5">
+          <div class="tilt-inner">
+            <div class="w-14 h-14 rounded-xl bg-[rgba(212,168,67,0.1)] flex items-center justify-center mb-5">
+              <span class="iconify text-[var(--accent-gold)]" data-icon="lucide:code-2" data-width="28"></span>
+            </div>
+            <h3 class="text-white text-xl font-medium mb-3">Custom Software</h3>
+            <p class="text-sm text-[var(--text-secondary)] leading-relaxed">Bespoke applications for businesses, NGOs, and organizations — built from scratch to your specs.</p>
+          </div>
+        </div>
+        <!-- Service 6 -->
+        <div class="tilt-card card-base reveal stagger-6">
+          <div class="tilt-inner">
+            <div class="w-14 h-14 rounded-xl bg-[rgba(42,82,152,0.2)] flex items-center justify-center mb-5">
+              <span class="iconify text-[var(--accent-blue-light)]" data-icon="lucide:headphones" data-width="28"></span>
+            </div>
+            <h3 class="text-white text-xl font-medium mb-3">IT Consulting</h3>
+            <p class="text-sm text-[var(--text-secondary)] leading-relaxed">Strategic technology guidance, system audits, digital transformation roadmaps, and training.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center mt-12 reveal">
+        <a href="services.html" class="btn-outline">
+          View All Services
+          <span class="iconify" data-icon="lucide:arrow-right" data-width="16"></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <!--
+  <section class="py-24 md:py-32 relative" style="background: var(--bg-primary);">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <div class="section-tag mx-auto mb-4 reveal">
+          <span class="iconify" data-icon="lucide:message-circle" data-width="14"></span>
+          Testimonials
+        </div>
+        <h2 class="section-title reveal stagger-1">What Our Clients <span class="text-[var(--accent-gold)]" style="font-style:italic;">Say</span></h2>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="tilt-card card-base reveal stagger-1">
+          <div class="tilt-inner">
+            <div class="flex gap-1 mb-4">
+              <span class="iconify text-[var(--accent-gold)]" data-icon="lucide:star" data-width="16"></span>
+              <span class="iconify text-[var(--accent-gold)]" data-icon="lucide:star" data-width="16"></span>
+              <span class="iconify text-[var(--accent-gold)]" data-icon="lucide:star" data-width="16"></span>
+              <span class="iconify text-[var(--accent-gold)]" data-icon="lucide:star" data-width="16"></span>
+              <span class="iconify text-[var(--accent-gold)]" data-icon="lucide:star" data-width="16"></span>
+            </div>
+            <p class="text-[var(--text-secondary)] text-sm leading-relaxed mb-6">"LaviTech transformed how we manage our 3,000 students. The system is intuitive, fast, and our staff adopted it within a week. Truly game-changing."</p>
+            <div class="flex items-center gap-3">
+              <img src="https://picsum.photos/seed/testimonial1/80/80" alt="" class="w-10 h-10 rounded-full object-cover">
+              <div>
+                <p class="text-white text-sm font-medium">Dr. Emily Appiah</p>
+                <p class="text-[var(--text-muted)] text-xs">Principal, Greenfield Academy</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tilt-card card-base reveal stagger-2">
+          <div class="tilt-inner">
+            <div class="flex gap-1 mb-4">
+              <span class="iconify text-[var(--accent-gold)]" data-icon="lucide:star" data-width="16"></span>
+              <span class="iconify text-[var(--accent-gold)]" data-icon="lucide:star" data-width="16"></span>
+              <span class="iconify text-[var(--accent-gold)]" data-icon="lucide:star" data-width="16"></span>
+              <span class="iconify text-[var(--accent-gold)]" data-icon="lucide:star" data-width="16"></span>
+              <span class="iconify text-[var(--accent-gold)]" data-icon="lucide:star" data-width="16"></span>
+            </div>
+            <p class="text-[var(--text-secondary)] text-sm leading-relaxed mb-6">"The mobile app they built for parents has reduced our office walk-ins by 60%. Fee payments, reports, and communication — all from a phone."</p>
+            <div class="flex items-center gap-3">
+              <img src="https://picsum.photos/seed/testimonial2/80/80" alt="" class="w-10 h-10 rounded-full object-cover">
+              <div>
+                <p class="text-white text-sm font-medium">Mr. Kwame Boateng</p>
+                <p class="text-[var(--text-muted)] text-xs">Director, Sunrise Schools</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tilt-card card-base reveal stagger-3">
+          <div class="tilt-inner">
+            <div class="flex gap-1 mb-4">
+              <span class="iconify text-[var(--accent-gold)]" data-icon="lucide:star" data-width="16"></span>
+              <span class="iconify text-[var(--accent-gold)]" data-icon="lucide:star" data-width="16"></span>
+              <span class="iconify text-[var(--accent-gold)]" data-icon="lucide:star" data-width="16"></span>
+              <span class="iconify text-[var(--accent-gold)]" data-icon="lucide:star" data-width="16"></span>
+              <span class="iconify text-[var(--accent-gold)]" data-icon="lucide:star" data-width="16"></span>
+            </div>
+            <p class="text-[var(--text-secondary)] text-sm leading-relaxed mb-6">"We needed a custom ERP for our chain of schools. LaviTech delivered on time, on budget, and the support after launch has been exceptional."</p>
+            <div class="flex items-center gap-3">
+              <img src="https://picsum.photos/seed/testimonial3/80/80" alt="" class="w-10 h-10 rounded-full object-cover">
+              <div>
+                <p class="text-white text-sm font-medium">Mrs. Abena Osei</p>
+                <p class="text-[var(--text-muted)] text-xs">CEO, Heritage Education Group</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  -->
+
+  <!-- CTA SECTION: UPDATED WITH PARTICLE ANIMATION -->
+  <section class="py-24 md:py-32 relative overflow-hidden cta-section">
+    <!-- Canvas for Particle Animation -->
+    <canvas id="cta-canvas"></canvas>
+    <!-- Dark overlay for better text readability -->
+    <div class="cta-overlay"></div>
+
+    <div class="max-w-4xl mx-auto px-6 text-center relative z-10">
+      <h2 class="section-title text-white mb-6 reveal">Ready to Transform Your 
+        <span class="word-box inline-block ml-2">
+          <span id="dynamic-word-cta" class="word">School?</span>
+        </span>
+      </h2>
+      <p class="text-lg text-white/80 mb-10 max-w-2xl mx-auto reveal stagger-1">Let's discuss how LaviTech can build the perfect software solution for your institution or business.</p>
+      <div class="flex flex-wrap justify-center gap-4 reveal stagger-2">
+        <a href="contact.html" class="btn-primary bg-[var(--accent-gold)] text-[var(--bg-deep)] hover:bg-[#e6bd61] transition-colors">
+          Start a Project
+          <span class="iconify" data-icon="lucide:arrow-right" data-width="16"></span>
+        </a>
+        <a href="portfolio.html" class="btn-outline border-white text-white hover:bg-white hover:text-[var(--bg-deep)] transition-colors">
+          View Portfolio
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer py-12">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+        <div class="flex items-center gap-3">
+          <img src="https://z-cdn-media.chatglm.cn/files/9029702b-c927-4c48-9376-8bdad121d966.png?auth_key=1877895135-c94da010b8a84ee49d18d6f2d64744d9-0-881f1f0a33c6cf48a7242c39f0225626" alt="LaviTech" class="h-8 w-8 object-contain">
+          <span class="text-white text-sm">© 2025 LaviTech. All rights reserved.</span>
+        </div>
+        <div class="flex items-center gap-3">
+          <span class="text-[var(--text-muted)] text-xs uppercase tracking-widest">Powered by:</span>
+          <img src="https://z-cdn-media.chatglm.cn/files/a350db93-f9d4-41fc-a2a7-0d4c314ed376.png?auth_key=1877895135-d2fbfb4387914b7eb0d17e6d24f3a646-0-c90681297267a85a55196c3c5141895e" alt="CKS-Tech" class="powered-logo h-8">
+          <span class="text-[var(--text-muted)]">&</span>
+          <img src="https://z-cdn-media.chatglm.cn/files/6dd93892-dfa5-4820-abb8-b9864932c148.png?auth_key=1877895135-7a87295d19b7455c829c4d2890f780ac-0-6464629db196fef3a02fcf6c93779f34" alt="D@in Corp" class="powered-logo h-8">
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+
+  <!-- UPDATED: Script for Animations -->
+  <script>
+    // 1. 3D Word Swipe Animation Logic (Preserved)
+    const words = ["Schools", "Businesses", "Hospitals", "NGOs", "Institutions"];
+    const ctaWords = ["School?", "Business?", "Hospital?", "NGO?", "Organization?"];
+    let index = 0;
+    let ctaIndex = 0;
+    const wordEl = document.getElementById("dynamic-word");
+    const ctaWordEl = document.getElementById("dynamic-word-cta");
+
+    function animateWord(element, text) {
+      element.classList.add("animate-out");
+
+      setTimeout(() => {
+        element.textContent = text;
+        element.classList.remove("animate-out");
+        element.classList.add("animate-in");
+
+        setTimeout(() => {
+          element.classList.remove("animate-in");
+        }, 600);
+      }, 600);
+    }
+
+    function changeWord() {
+      index = (index + 1) % words.length;
+      ctaIndex = (ctaIndex + 1) % ctaWords.length;
+      if(wordEl) animateWord(wordEl, words[index]);
+      if (ctaWordEl) animateWord(ctaWordEl, ctaWords[ctaIndex]);
+    }
+
+    setInterval(changeWord, 2500);
+
+    // 2. NEW: Responsive Particle Animation System (Canvas)
+    document.addEventListener("DOMContentLoaded", () => {
+      const canvas = document.getElementById('cta-canvas');
+      if (!canvas) return;
+
+      const ctx = canvas.getContext('2d');
+      let particles = [];
+      let width, height;
+
+      // Colors matching LaviTech branding
+      const colors = [
+        'rgba(212, 168, 67, 0.6)',  // Gold
+        'rgba(42, 82, 152, 0.6)',   // Blue
+        'rgba(255, 255, 255, 0.4)'  // White
+      ];
+
+      // Resize handling
+      function resize() {
+        width = canvas.width = canvas.offsetWidth;
+        height = canvas.height = canvas.offsetHeight;
+      }
+      
+      window.addEventListener('resize', resize);
+      resize();
+
+      // Particle Class
+      class Particle {
+        constructor() {
+          this.reset(true);
+        }
+
+        reset(initial = false) {
+          // Spawn at bottom if not initial, or anywhere if initial
+          this.x = Math.random() * width;
+          this.y = initial ? Math.random() * height : height + 10;
+          
+          // Physics
+          this.vx = (Math.random() - 0.5) * 1.5; // Drift left/right
+          this.vy = -(Math.random() * 2 + 0.5);   // Move upwards
+          
+          // Appearance
+          this.size = Math.random() * 3 + 1;
+          this.color = colors[Math.floor(Math.random() * colors.length)];
+          this.alpha = 0;
+          this.targetAlpha = Math.random() * 0.5 + 0.3;
+          this.fadeState = 'in'; // in, sustain, out
+          
+          // Life cycle
+          this.life = Math.random() * 100 + 100;
+        }
+
+        update() {
+          // Move
+          this.x += this.vx;
+          this.y += this.vy;
+
+          // Fade Logic
+          if (this.fadeState === 'in') {
+            this.alpha += 0.02;
+            if (this.alpha >= this.targetAlpha) this.fadeState = 'sustain';
+          } else if (this.fadeState === 'sustain') {
+            // Simple fade out when near top
+            if (this.y < height * 0.2) this.fadeState = 'out';
+            this.life--;
+            if(this.life <= 0) this.fadeState = 'out';
+          } else if (this.fadeState === 'out') {
+            this.alpha -= 0.02;
+            if (this.alpha <= 0) this.reset();
+          }
+
+          // Reset if off screen top
+          if (this.y < -10) this.reset();
+        }
+
+        draw() {
+          ctx.globalAlpha = this.alpha;
+          ctx.fillStyle = this.color;
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.globalAlpha = 1;
+        }
+      }
+
+      // Initialize Particles
+      const particleCount = window.innerWidth < 768 ? 40 : 80;
+      for (let i = 0; i < particleCount; i++) {
+        particles.push(new Particle());
+      }
+
+      // Animation Loop
+      function animate() {
+        ctx.clearRect(0, 0, width, height);
+        particles.forEach(p => {
+          p.update();
+          p.draw();
+        });
+        requestAnimationFrame(animate);
+      }
+
+      animate();
+      
+      // Interaction: Slight repulsion on mouse move
+      canvas.addEventListener('mousemove', (e) => {
+        const rect = canvas.getBoundingClientRect();
+        const mouseX = e.clientX - rect.left;
+        const mouseY = e.clientY - rect.top;
+
+        particles.forEach(p => {
+          const dx = p.x - mouseX;
+          const dy = p.y - mouseY;
+          const dist = Math.sqrt(dx*dx + dy*dy);
+          if (dist < 100) {
+            const force = (100 - dist) / 100;
+            p.x += (dx / dist) * force * 5;
+            p.y += (dy / dist) * force * 5;
+          }
+        });
+      });
+    });
+    const menu = document.getElementById("quick-menu");
+
+document.addEventListener("contextmenu", (e) => {
+  e.preventDefault();
+
+  // Prevent menu going off-screen
+  const x = Math.min(e.pageX, window.innerWidth - 200);
+  const y = Math.min(e.pageY, window.innerHeight - 200);
+
+  menu.style.left = x + "px";
+  menu.style.top = y + "px";
+  menu.style.display = "block";
+});
+
+document.addEventListener("click", () => {
+  menu.style.display = "none";
+});
+
+// Navigation logic
+document.querySelectorAll(".menu-item").forEach(item => {
+  item.addEventListener("click", () => {
+    const link = item.getAttribute("data-link");
+    window.location.href = link;
+  });
+});
+  </script>
+  
+</body>
+</html>
