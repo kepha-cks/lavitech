@@ -9,6 +9,52 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
   <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* FAQ Toggle Styles */
+    .faq-item.faq-open .faq-answer { max-height: 200px; }
+    .faq-item.faq-open .faq-icon { transform: rotate(45deg); }
+
+    /* Modal Styles */
+    #teamModal {
+      transition: opacity 0.4s ease, visibility 0.4s ease;
+    }
+    #teamModal.active {
+      opacity: 1 !important;
+      pointer-events: auto !important;
+      visibility: visible !important;
+    }
+    #teamModal .modal-card {
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
+      transform: scale(0.95) translateY(20px);
+      opacity: 0;
+    }
+    #teamModal.active .modal-card {
+      transform: scale(1) translateY(0);
+      opacity: 1;
+    }
+    .skill-badge {
+      background: rgba(212, 168, 67, 0.1);
+      color: var(--accent-gold);
+      padding: 6px 14px;
+      border-radius: 9999px;
+      font-size: 12px;
+      font-weight: 500;
+      border: 1px solid rgba(212, 168, 67, 0.2);
+    }
+    #modalParticles {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      pointer-events: none;
+    }
+    /* Custom scrollbar for modal if needed */
+    .modal-card::-webkit-scrollbar { width: 6px; }
+    .modal-card::-webkit-scrollbar-track { background: transparent; }
+    .modal-card::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 3px; }
+  </style>
 </head>
 <body>
 
@@ -39,12 +85,12 @@
     </div>
   </nav>
   <div id="quick-menu">
-  <div class="menu-item" data-link="index.html"><span class="iconify" data-icon="lucide:home" data-width="18"></span> Home</div>
-  <div class="menu-item" data-link="portfolio.html"><span class="iconify" data-icon="lucide:code" data-width="18"></span> Portfolio</div>
-  <div class="menu-item" data-link="about.html"><span class="iconify" data-icon="lucide:users" data-width="18"></span> About</div>
-  <div class="menu-item" data-link="contact.html"><span class="iconify" data-icon="lucide:mail" data-width="18"></span> Contact</div>
-  <div class="menu-item" data-link="services.html"><span class="iconify" data-icon="lucide:wrench" data-width="18"></span> Services</div>
-</div>
+    <div class="menu-item" data-link="index.html"><span class="iconify" data-icon="lucide:home" data-width="18"></span> Home</div>
+    <div class="menu-item" data-link="portfolio.html"><span class="iconify" data-icon="lucide:code" data-width="18"></span> Portfolio</div>
+    <div class="menu-item" data-link="about.html"><span class="iconify" data-icon="lucide:users" data-width="18"></span> About</div>
+    <div class="menu-item" data-link="contact.html"><span class="iconify" data-icon="lucide:mail" data-width="18"></span> Contact</div>
+    <div class="menu-item" data-link="services.html"><span class="iconify" data-icon="lucide:wrench" data-width="18"></span> Services</div>
+  </div>
   <div class="mobile-menu">
     <a href="index.html" class="nav-link">Home</a>
     <a href="about.html" class="nav-link">About</a>
@@ -144,10 +190,6 @@
                   <p class="text-white text-sm font-medium mb-1">General Line</p>
                   <p class="text-[var(--text-secondary)] text-xs">+256 755 261 254</p>
                 </div>
-                <div>
-                  <p class="text-white text-sm font-medium mb-1">Instagram</p>
-                  <p class="text-[var(--text-secondary)] text-xs"><a href="https://www.instagram.com/lavi_tech.ug/">lavi_tech.ug</a></p>
-                </div>
               </div>
 
               <div class="flex items-start gap-4">
@@ -167,6 +209,26 @@
                 <div>
                   <p class="text-white text-sm font-medium mb-1">Working Hours</p>
                   <p class="text-[var(--text-secondary)] text-xs">Mon – Fri: 8:00 AM – 5:00 PM<br>Sat: 9:00 AM – 1:00 PM</p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-4">
+                <div class="w-10 h-10 rounded-lg bg-[rgba(212,168,67,0.1)] flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <span class="iconify text-[var(--accent-gold)]" data-icon="lucide:instagram" data-width="18"></span>
+                </div>
+                <div>
+                  <p class="text-white text-sm font-medium mb-1">Instagram</p>
+                  <p class="text-[var(--text-secondary)] text-xs"><a href="https://instagram.com/lavi_tech.ug" target="_blank" rel="noopener">Follow us @lavitech</a></p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-4">
+                <div class="w-10 h-10 rounded-lg bg-[rgba(42,82,152,0.2)] flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <span class="iconify text-[var(--accent-blue-light)]" data-icon="lucide:linkedin" data-width="18"></span>
+                </div>
+                <div>
+                  <p class="text-white text-sm font-medium mb-1">LinkedIn</p>
+                  <p class="text-[var(--text-secondary)] text-xs"><a href="https://www.linkedin.com/in/lavi-tech-03a384409/" target="_blank" rel="noopener">Connect with us</a></p>
                 </div>
               </div>
             </div>
@@ -191,13 +253,13 @@
           Our Leadership
         </div>
         <h2 class="section-title reveal stagger-1">Get in Touch <span class="text-[var(--accent-gold)]" style="font-style:italic;">Directly</span></h2>
-        <p class="section-subtitle mx-auto mt-4 reveal stagger-2">Reach out to any member of our leadership team.</p>
+        <p class="section-subtitle mx-auto mt-4 reveal stagger-2">Click on a team member to view their full profile and reach out.</p>
       </div>
 
       <div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
 
         <!-- CEO -->
-        <div class="team-card tilt-card reveal stagger-1">
+        <div class="team-card tilt-card reveal stagger-1 cursor-pointer" onclick="openModal('cherop')">
           <div class="tilt-inner">
             <div class="image-container"><img src="res/team/cks.jpg" alt="Mr. Cherop Kepha Siya" class="headshot"><div class="image-overlay" oncontextmenu="return false;"></div></div>
             <h3 class="text-white text-base font-medium">Mr. Cherop Kepha</h3>
@@ -215,12 +277,13 @@
                 <span class="iconify text-green-500" data-icon="lucide:message-circle" data-width="14"></span>
                 <a href="https://wa.me/256755261254" target="_blank" rel="noopener">WhatsApp</a>
               </div>
+              <br><br><br><p>Click to learn more</p>
             </div>
           </div>
         </div>
 
         <!-- CTO -->
-        <div class="team-card tilt-card reveal stagger-2">
+        <div class="team-card tilt-card reveal stagger-2 cursor-pointer" onclick="openModal('daniel')">
           <div class="tilt-inner">
             <div class="image-container"><img src="res/team/headshot_daniel.jpg" alt="Mr. Mukisa Daniel" class="headshot"><div class="image-overlay" oncontextmenu="return false;"></div></div>
             <h3 class="text-white text-base font-medium">Mr. Mukisa Daniel</h3>
@@ -238,12 +301,13 @@
                 <span class="iconify text-green-500" data-icon="lucide:message-circle" data-width="14"></span>
                 <a href="https://wa.me/256763746381" target="_blank" rel="noopener">WhatsApp</a>
               </div>
+              <br><br><br><p>Click to learn more</p>
             </div>
           </div>
         </div>
 
         <!-- CMO -->
-        <div class="team-card tilt-card reveal stagger-3">
+        <div class="team-card tilt-card reveal stagger-3 cursor-pointer" onclick="openModal('innocent')">
           <div class="tilt-inner">
             <div class="image-container"><img src="res/team/innocent.jpg" alt="Mr. Nuwagaba Innocent" class="headshot"><div class="image-overlay" oncontextmenu="return false;"></div></div>
             <h3 class="text-white text-base font-medium">Mr. Nuwagaba Innocent</h3>
@@ -261,12 +325,13 @@
                 <span class="iconify text-green-500" data-icon="lucide:message-circle" data-width="14"></span>
                 <a href="https://wa.me/256709267439" target="_blank" rel="noopener">WhatsApp</a>
               </div>
+              <br><br><p>Click to learn more</p>
             </div>
           </div>
         </div>
 
         <!-- QA Officer -->
-        <div class="team-card tilt-card reveal stagger-4">
+        <div class="team-card tilt-card reveal stagger-4 cursor-pointer" onclick="openModal('nejjo')">
           <div class="tilt-inner">
             <div class="image-container"><img src="res/team/nejjo.jpg" alt="Ms. Nejjo Hussein" class="headshot"><div class="image-overlay" oncontextmenu="return false;"></div></div>
             <h3 class="text-white text-base font-medium">Ms. Nejjo Hussein</h3>
@@ -284,12 +349,13 @@
                 <span class="iconify text-green-500" data-icon="lucide:message-circle" data-width="14"></span>
                 <a href="https://wa.me/266778181063" target="_blank" rel="noopener">WhatsApp</a>
               </div>
+              <br><br><br><p>Click to learn more</p>
             </div>
           </div>
         </div>
 
         <!-- Finance Manager -->
-        <div class="team-card tilt-card reveal stagger-5">
+        <div class="team-card tilt-card reveal stagger-5 cursor-pointer" onclick="openModal('angella')">
           <div class="tilt-inner">
             <div class="image-container"><img src="res/team/angella.jpg" alt="Ms. Alupo Angella" class="headshot"><div class="image-overlay" oncontextmenu="return false;"></div></div>
             <h3 class="text-white text-base font-medium">Ms. Alupo Angella</h3>
@@ -306,7 +372,9 @@
               <div class="contact-item">
                 <span class="iconify text-green-500" data-icon="lucide:message-circle" data-width="14"></span>
                 <a href="https://wa.me/256701896169" target="_blank" rel="noopener">WhatsApp</a>
+                
               </div>
+              <br><br><br><br><p>Click to learn more</p>
             </div>
           </div>
         </div>
@@ -314,6 +382,64 @@
       </div>
     </div>
   </section>
+
+  <!-- TEAM MEMBER MODAL -->
+  <div id="teamModal" class="fixed inset-0 z-[100] flex items-center justify-center p-4 opacity-0 pointer-events-none invisible" style="background: rgba(0,0,0,0.85); backdrop-filter: blur(4px);">
+    <canvas id="modalParticles"></canvas>
+    
+    <div class="modal-card relative z-10 bg-[var(--bg-primary)] border border-[rgba(255,255,255,0.1)] rounded-2xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto grid md:grid-cols-5 gap-8 p-8 md:p-10">
+      
+      <!-- Close Button -->
+      <button onclick="closeModal()" class="absolute top-4 right-4 text-[var(--text-muted)] hover:text-white transition-colors z-20 bg-[rgba(0,0,0,0.3)] rounded-full p-1.5 hover:bg-[rgba(255,255,255,0.1)]">
+        <span class="iconify" data-icon="lucide:x" data-width="20"></span>
+      </button>
+
+      <!-- Left Column: Profile & Contact -->
+      <div class="md:col-span-2 flex flex-col items-center text-center border-r border-[rgba(255,255,255,0.05)] pr-0 md:pr-8">
+        <div class="w-36 h-36 rounded-full overflow-hidden border-4 border-[var(--accent-gold)] mb-6 shadow-lg shadow-[rgba(212,168,67,0.2)] image-container">
+          <img id="modalImg" src="" alt="" class="w-full h-full object-cover">
+          <div class="image-overlay" oncontextmenu="return false;"></div>
+        </div>
+        <h3 id="modalName" class="text-white text-2xl font-semibold" style="font-family:var(--font-serif);"></h3>
+        <p id="modalRole" class="text-[var(--accent-gold)] text-xs uppercase tracking-[0.2em] mt-1 mb-6 font-medium"></p>
+        
+        <div class="w-full space-y-3 text-left mb-8">
+          <div id="modalPhone" class="contact-item text-sm"></div>
+          <div id="modalEmail" class="contact-item text-sm"></div>
+          <div id="modalWhatsapp" class="contact-item text-sm"></div>
+        </div>
+
+        <div class="flex items-center gap-4 mt-auto" style="z-index: -5; display:none">
+          <a id="modalTwitter" href="#" target="_blank" class="text-[var(--text-muted)] hover:text-[var(--accent-gold)] transition-colors hidden">
+            <span class="iconify" data-icon="lucide:twitter" data-width="20"></span>
+          </a>
+          <a id="modalLinkedin" href="#" target="_blank" class="text-[var(--text-muted)] hover:text-[var(--accent-blue-light)] transition-colors hidden">
+            <span class="iconify" data-icon="lucide:linkedin" data-width="20"></span>
+          </a>
+          <a id="modalGithub" href="#" target="_blank" class="text-[var(--text-muted)] hover:text-white transition-colors hidden">
+            <span class="iconify" data-icon="lucide:github" data-width="20"></span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Right Column: Bio & Skills -->
+      <div class="md:col-span-3 flex flex-col justify-center pl-0 md:pl-4">
+        <div class="mb-8">
+          <h4 class="text-[var(--accent-blue-light)] uppercase tracking-[0.2em] text-xs font-semibold mb-3 flex items-center gap-2">
+            <span class="iconify" data-icon="lucide:user" data-width="14"></span> About
+          </h4>
+          <p id="modalBio" class="text-[var(--text-secondary)] leading-relaxed text-sm"></p>
+        </div>
+        
+        <div>
+          <h4 class="text-[var(--accent-blue-light)] uppercase tracking-[0.2em] text-xs font-semibold mb-4 flex items-center gap-2">
+            <span class="iconify" data-icon="lucide:zap" data-width="14"></span> Skills & Expertise
+          </h4>
+          <div id="modalSkills" class="flex flex-wrap gap-2"></div>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- FAQ QUICK SECTION -->
   <section class="py-24 md:py-32 relative">
@@ -327,7 +453,6 @@
       </div>
 
       <div class="space-y-4">
-        <!-- FAQ 1 -->
         <div class="card-base reveal stagger-1 faq-item" style="cursor:pointer;" onclick="this.classList.toggle('faq-open')">
           <div class="flex items-center justify-between">
             <h3 class="text-white text-sm font-medium pr-4">How long does it take to build a school management system?</h3>
@@ -337,7 +462,6 @@
             <p class="text-[var(--text-secondary)] text-sm leading-relaxed pt-4">Depending on the scope, a standard school management system takes 8–16 weeks from discovery to launch. Complex multi-campus deployments may take longer. We provide a detailed timeline during the discovery phase.</p>
           </div>
         </div>
-        <!-- FAQ 2 -->
         <div class="card-base reveal stagger-2 faq-item" style="cursor:pointer;" onclick="this.classList.toggle('faq-open')">
           <div class="flex items-center justify-between">
             <h3 class="text-white text-sm font-medium pr-4">Do you offer ongoing support and maintenance?</h3>
@@ -347,7 +471,6 @@
             <p class="text-[var(--text-secondary)] text-sm leading-relaxed pt-4">Absolutely. Every project comes with 12 months of free support and maintenance. After that, we offer flexible support packages tailored to your needs — from basic bug fixes to full managed services.</p>
           </div>
         </div>
-        <!-- FAQ 3 -->
         <div class="card-base reveal stagger-3 faq-item" style="cursor:pointer;" onclick="this.classList.toggle('faq-open')">
           <div class="flex items-center justify-between">
             <h3 class="text-white text-sm font-medium pr-4">Can your software integrate with existing systems?</h3>
@@ -357,7 +480,6 @@
             <p class="text-[var(--text-secondary)] text-sm leading-relaxed pt-4">Yes. We build our systems with APIs that can integrate with accounting software, payment gateways (MTN Mobile Money, Visa, etc.), biometric devices, government reporting systems, and more.</p>
           </div>
         </div>
-        <!-- FAQ 4 -->
         <div class="card-base reveal stagger-4 faq-item" style="cursor:pointer;" onclick="this.classList.toggle('faq-open')">
           <div class="flex items-center justify-between">
             <h3 class="text-white text-sm font-medium pr-4">What is the pricing model?</h3>
@@ -389,105 +511,269 @@
     </div>
   </footer>
 
-  <!-- FAQ Toggle Script (inline for this page) -->
-  <style>
-    .faq-item.faq-open .faq-answer { max-height: 200px; }
-    .faq-item.faq-open .faq-icon { transform: rotate(45deg); }
-  </style>
-
   <script src="js/main.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 
-<script>
-/* =========================
-   1. INIT EMAILJS
-========================= */
-(function () {
-  emailjs.init("9nwv2AbzuWRlR2I6x");
-})();
+  <script>
+    /* =========================
+       1. INIT EMAILJS
+    ========================= */
+    (function () {
+      emailjs.init("9nwv2AbzuWRlR2I6x");
+    })();
 
-/* =========================
-   2. FORM HANDLER
-========================= */
-document.getElementById("contactForm").addEventListener("submit", function (e) {
-  e.preventDefault();
+    /* =========================
+       2. FORM HANDLER
+    ========================= */
+    document.getElementById("contactForm").addEventListener("submit", function (e) {
+      e.preventDefault();
 
-  const btn = this.querySelector("button");
+      const btn = this.querySelector("button");
 
-  // Disable button to prevent double sends
-  btn.disabled = true;
-  btn.innerText = "Sending...";
+      btn.disabled = true;
+      btn.innerHTML = `<span class="iconify animate-spin" data-icon="lucide:loader-2" data-width="16"></span> Sending...`;
 
-  /* =========================
-     3. GET USER INPUTS
-  ========================== */
-  const name = document.getElementById("from_name").value.trim();
-  const email = document.getElementById("from_email").value.trim();
-  const subject = document.getElementById("subject").value.trim();
-  const message = document.getElementById("message").value.trim();
+      const name = document.getElementById("from_name").value.trim();
+      const email = document.getElementById("from_email").value.trim();
+      const subject = document.getElementById("subject").value.trim();
+      const message = document.getElementById("message").value.trim();
 
-  /* =========================
-     4. GENERATE TIME DATA (AT SUBMIT MOMENT)
-  ========================== */
-  const now = new Date();
+      const now = new Date();
+      const time = now.toLocaleString("en-GB", { dateStyle: "medium", timeStyle: "short" });
+      const timezone = "EAT (East Africa Time)";
+      const system_timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
 
-  const time = now.toLocaleString("en-GB", {
-    dateStyle: "medium",
-    timeStyle: "short"
-  });
+      emailjs.send("service_fxwp22i", "template_6drzo2p", {
+        name: name,
+        email: email,
+        subject: subject,
+        message: message,
+        time: time,
+        timezone: timezone,
+        year: new Date().getFullYear(),
+        system_timezone: system_timezone
+      })
+      .then(function (response) {
+        console.log("SUCCESS:", response);
+        alert("✅ Message sent successfully!");
+        document.getElementById("contactForm").reset();
+      })
+      .catch(function (error) {
+        console.log("ERROR:", error);
+        alert("❌ Failed to send message. Check console.");
+      })
+      .finally(function () {
+        btn.disabled = false;
+        btn.innerHTML = `<span class="iconify" data-icon="lucide:send" data-width="16"></span> Send Message`;
+      });
+    });
 
-  const timezone = "EAT (East Africa Time)";
-  const system_timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+    /* =========================
+       3. TEAM MODAL DATA
+    ========================= */
+    const teamData = {
+      cherop: {
+        name: "Mr. Cherop Kepha Siya",
+        role: "Chief Executive Officer",
+        img: "res/team/cks.jpg",
+        phone: "+256 755 261 254",
+        email: "kephache55@gmail.com",
+        whatsapp: "256755261254",
+        bio: "Visionary leader driving LaviTech's strategic growth and partnerships. With a deep passion for leveraging technology to transform education in Uganda, Kepha ensures the company remains at the forefront of innovative ed-tech solutions that empower institutions.",
+        skills: ["Strategic Planning", "Business Development", "Software Development", "Leadership", "Partnerships", "Programmer"],
+        socials: { twitter: "https://twitter.com/", linkedin: "https://linkedin.com/", github: "https://github.com/" }
+      },
+      daniel: {
+        name: "Mr. Mukisa Daniel",
+        role: "Chief Technical Officer",
+        img: "res/team/headshot_daniel.jpg",
+        phone: "+256 763 746 381",
+        email: "ellaish27@gmail.com",
+        whatsapp: "256763746381",
+        bio: "Architect of LaviTech's robust software solutions. Daniel oversees the technical strategy and ensures the delivery of secure, scalable, and high-performance systems tailored for the client's needs.",
+        skills: ["System Architecture", "Full-Stack Dev", "Software Engineer", "Code Debugging", "Python", "HTML", "CSS", "JavaScript", "Programmer"],
+        socials: { twitter: "https://x.com/DanielMuki92969", linkedin: "https://www.linkedin.com/in/daniel-mukisa-11789634a/", github: "https://github.com/ellaish27" }
+      },
+      innocent: {
+        name: "Mr. Nuwagaba Innocent",
+        role: "Chief Marketing Officer",
+        img: "res/team/innocent.jpg",
+        phone: "+256 709 267 439",
+        email: "innocentnuwa1jb@gmail.com",
+        whatsapp: "256709267439",
+        bio: "Creative strategist amplifying LaviTech's market presence. Innocent crafts compelling narratives and data-driven campaigns that connect our solutions with the institutions and businesses that need them most.",
+        skills: ["Digital Marketing", "Brand Strategy", "Market Research", "Content Creation", "Analytics", "Economist"],
+        socials: { twitter: "https://twitter.com/", linkedin: "https://linkedin.com/", github: "https://github.com/" }
+      },
+      nejjo: {
+        name: "Ms. Nejjo Hussein Adams",
+        role: "Quality Assurance Officer",
+        img: "res/team/nejjo.jpg",
+        phone: "+256 778 181 063",
+        email: "nejjohusseinadamz@gmail.com",
+        whatsapp: "256778181063",
+        bio: "Guardian of product excellence. Hussein meticulously tests and refines our software functioning according to the client's needs, ensuring every deployment is user-friendly, and meets the highest standards of reliability before reaching the client.",
+        skills: ["UI/UX Auditing", "Quality Standards", "Testing Protocols", "Issue Tracking", "Client Feedback Analysis"],
+        socials: { twitter: "https://twitter.com/", linkedin: "https://linkedin.com/", github: "https://github.com/" }
+      },
+      angella: {
+        name: "Ms. Alupo Angella",
+        role: "Finance Manager",
+        img: "res/team/angella.jpg",
+        phone: "+256 701 896 169",
+        email: "angelicahartley684@gmail.com",
+        whatsapp: "256701896169",
+        bio: "Steward of LaviTech's financial health and operational efficiency. Angella manages budgeting, forecasting, and compliance, ensuring that our growth is sustainable and our pricing remains transparent for clients.",
+        skills: ["Financial Planning", "Budgeting", "Compliance", "Accounting", "Risk Management"],
+        socials: { twitter: "https://twitter.com/", linkedin: "https://linkedin.com/", github: "https://github.com/" }
+      }
+    };
 
-  /* =========================
-     5. SEND EMAIL VIA EMAILJS
-  ========================== */
-  emailjs.send("service_fxwp22i", "template_6drzo2p", {
-    name: name,
-    email: email,
-    subject: subject,
-    message: message,
+    /* =========================
+       4. MODAL LOGIC
+    ========================= */
+    const modal = document.getElementById('teamModal');
+    const canvas = document.getElementById('modalParticles');
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+    let animFrameId;
 
-    time: time,
-    timezone: timezone,
-    year: new Date().getFullYear(),
-    system_timezone: system_timezone
-  })
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
 
-  /* =========================
-     6. SUCCESS HANDLER
-  ========================== */
-  .then(function (response) {
-    console.log("SUCCESS:", response);
+    class Particle {
+      constructor() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.size = Math.random() * 2 + 0.5;
+        this.speedX = Math.random() * 1.5 - 0.75;
+        this.speedY = Math.random() * 1.5 - 0.75;
+        this.opacity = Math.random() * 0.5 + 0.1;
+      }
+      update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+        if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
+        if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
+      }
+      draw() {
+        ctx.fillStyle = `rgba(212, 168, 67, ${this.opacity})`; // Gold particles
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    }
 
-    alert("✅ Message sent successfully!");
+    function initParticles() {
+      particles = [];
+      for (let i = 0; i < 60; i++) {
+        particles.push(new Particle());
+      }
+    }
 
-    document.getElementById("contactForm").reset();
-  })
+    function animateParticles() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      
+      for (let i = 0; i < particles.length; i++) {
+        particles[i].update();
+        particles[i].draw();
+        
+        for (let j = i; j < particles.length; j++) {
+          const dx = particles[i].x - particles[j].x;
+          const dy = particles[i].y - particles[j].y;
+          const distance = Math.sqrt(dx * dx + dy * dy);
+          
+          if (distance < 120) {
+            ctx.beginPath();
+            ctx.strokeStyle = `rgba(42, 82, 152, ${1 - distance / 120})`; // Blue lines
+            ctx.lineWidth = 0.5;
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.stroke();
+          }
+        }
+      }
+      animFrameId = requestAnimationFrame(animateParticles);
+    }
 
-  /* =========================
-     7. ERROR HANDLER
-  ========================== */
-  .catch(function (error) {
-    console.log("ERROR:", error);
+    function openModal(memberId) {
+      const data = teamData[memberId];
+      if(!data) return;
 
-    alert("❌ Failed to send message. Check console.");
-  })
+      // Populate Data
+      document.getElementById('modalImg').src = data.img;
+      document.getElementById('modalImg').alt = data.name;
+      document.getElementById('modalName').innerText = data.name;
+      document.getElementById('modalRole').innerText = data.role;
+      document.getElementById('modalBio').innerText = data.bio;
+      
+      // Contacts
+      document.getElementById('modalPhone').innerHTML = `
+        <span class="iconify text-[var(--accent-gold)]" data-icon="lucide:phone" data-width="14"></span>
+        <a href="tel:${data.phone}">${data.phone}</a>
+      `;
+      document.getElementById('modalEmail').innerHTML = `
+        <span class="iconify text-[var(--accent-gold)]" data-icon="lucide:mail" data-width="14"></span>
+        <a href="mailto:${data.email}">${data.email}</a>
+      `;
+      document.getElementById('modalWhatsapp').innerHTML = `
+        <span class="iconify text-green-500" data-icon="lucide:message-circle" data-width="14"></span>
+        <a href="https://wa.me/${data.whatsapp}" target="_blank">WhatsApp Me</a>
+      `;
 
-  /* =========================
-     8. RESET BUTTON STATE
-  ========================== */
-  .finally(function () {
-    btn.disabled = false;
-    btn.innerText = "Send Message";
-  });
-});
-</script>
+      // Socials
+      const socialsConfig = { twitter: 'modalTwitter', linkedin: 'modalLinkedin', github: 'modalGithub' };
+      for (const [platform, id] of Object.entries(socialsConfig)) {
+        const el = document.getElementById(id);
+        if (data.socials[platform]) {
+          el.href = data.socials[platform];
+          el.classList.remove('hidden');
+        } else {
+          el.classList.add('hidden');
+        }
+      }
 
-<!-- Dynamic Year Script -->
-<script>
-  document.getElementById('current-year').textContent = new Date().getFullYear();
-  const year = new Date().getFullYear();
-</script>
+      // Skills
+      const skillsHtml = data.skills.map(skill => `<span class="skill-badge">${skill}</span>`).join('');
+      document.getElementById('modalSkills').innerHTML = skillsHtml;
+
+      // Show Modal
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+
+      // Start Particles
+      resizeCanvas();
+      initParticles();
+      animateParticles();
+    }
+
+    function closeModal() {
+      modal.classList.remove('active');
+      document.body.style.overflow = '';
+      cancelAnimationFrame(animFrameId);
+    }
+
+    // Close on clicking overlay
+    modal.addEventListener('click', function(e) {
+      if (e.target === modal || e.target === canvas) {
+        closeModal();
+      }
+    });
+
+    // Close on pressing Escape key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && modal.classList.contains('active')) {
+        closeModal();
+      }
+    });
+
+    // Handle window resize for canvas
+    window.addEventListener('resize', resizeCanvas);
+
+    // Dynamic Year Script
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
